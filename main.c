@@ -92,3 +92,4 @@ int	main()
 
 // teste
 // Meu hobby? Amar demais
+// Bora bill 67 labubu Carlinhos maia farmador de aura Vivi+Vini Casalzao
