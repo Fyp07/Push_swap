@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/08 15:01:32 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/15 14:52:56 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,4 @@ void	rrr(t_list **lista_a, t_list **lista_b)
 {
 	rra(lista_a);
 	rrb(lista_b);
-}
-
-int	main()
-{
-	t_list	*c;
-
-	c = malloc(sizeof(t_list));
 }
