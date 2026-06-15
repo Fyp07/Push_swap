@@ -91,3 +91,4 @@ int	main()
 }
 
 // teste
+// Meu hobby? Amar 
