@@ -6,40 +6,55 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/15 15:00:11 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/15 18:57:55 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	validate_flags(int *argc, char **argv)
+t_input	validate_flags(int argc, char **argv, t_input *input)
 {
 	int	i;
 
-	i = 0;
-	while (i < argc)
+	i = 1;
+	input->strategy = ADAPTIVE;
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
 		if (ft_strncmp(argv[i], "--simple", 8) == 0)
-			return (SIMPLE);
+			input->strategy = SIMPLE;
 		else if (ft_strncmp(argv[i], "--medium", 8) == 0)
-			return (MEDIUM);
+			input->strategy = MEDIUM;
 		else if (ft_strncmp(argv[i], "--complex", 9) == 0)
-			return (COMPLEX);
+			input->strategy = COMPLEX;
 		else if (ft_strncmp(argv[i], "--adaptive", 10) == 0)
-			return (ADAPTIVE);
-	}
-}
-
-int	quntos_args(char *argv[])
-{
-	char	**argumentos;
-	int	i;
-	
-	i = 0;
-	argumentos = ft_split(argv, " "); // "1 4 7 85 3 1"
-	while (argumentos[i])
+			input->strategy = ADAPTIVE;
 		i++;
-	return i;
+	}
+	input->start = i;
+	input->count = argc - i;
 }
 
-// Testando cooperatividade (github);
+int	quntos_args(int argc, char *argv[], int start)
+{
+	return (argc - start);
+}
+
+int	is_not_a_number(int argc, char	*argv[])
+{
+	int	i;
+	int	j;
+
+	j = 3;
+	while (j < argc)
+	{
+		i = 0;
+		while(argv[j][i])
+		{
+			if (argv[j][i] < '0' || argv[j][i] > '9')
+				return (1);
+			i++;
+		}
+		j++;
+	}
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/15 14:11:22 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/15 18:55:40 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft.h"
 # include <stdlib.h>
 
+
 typedef enum e_flags
 {
 	SIMPLE,
@@ -26,6 +27,14 @@ typedef enum e_flags
 	ERROR,
 	
 }	t_flags;
+
+typedef struct s_input
+{
+	t_flags	strategy;
+	int	*nums;
+	int	count;
+	int	start;
+}	t_input;
 
 typedef struct s_list
 {
