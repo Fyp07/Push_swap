@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/15 14:40:01 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/15 15:00:11 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,5 @@ int	quntos_args(char *argv[])
 		i++;
 	return i;
 }
+
+// Testando cooperatividade (github);
