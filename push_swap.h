@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/15 18:55:40 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/16 15:27:25 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include "libft.h"
 # include <stdlib.h>
+# include <limits.h>
 
 
 typedef enum e_flags

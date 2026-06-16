@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/15 18:57:55 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/16 18:30:05 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,89 @@ t_input	validate_flags(int argc, char **argv, t_input *input)
 	input->count = argc - i;
 }
 
-int	quntos_args(int argc, char *argv[], int start)
+int	count_args(int argc, char *argv[], int start)
 {
 	return (argc - start);
 }
 
-int	is_not_a_number(int argc, char	*argv[])
+int	is_not_num(char	*str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (1);
+	while (str[i])
+	{
+		if (str[i] < '0' && str[i] > '9')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int has_repeated(char	**numbers)
 {
 	int	i;
 	int	j;
 
-	j = 3;
-	while (j < argc)
+	while (numbers[j])
 	{
 		i = 0;
-		while(argv[j][i])
+		while (numbers[i])
 		{
-			if (argv[j][i] < '0' || argv[j][i] > '9')
+			if (ft_atoi(numbers[j] == ft_atoi(numbers[i])))
 				return (1);
 			i++;
 		}
 		j++;
 	}
+	return (0);
+}
+
+long	ft_atol(const char *nptr)
+{
+	long	sign;
+	long	res;
+	int	i;
+
+	sign = 1;
+	res = 0;
+	i = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || (nptr[i] == 32))
+		i++;
+	if (nptr[i] == '+')
+		i++;
+	else if (nptr[i] == '-')
+	{
+		sign *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		res = (res * 10 + (nptr[i] - '0'));
+		i++;
+	}
+	return (res * sign);
+}
+
+
+int	not_in_range(char	**numbers)
+{
+	int	i;
+	int	j;
+	
+	i = 0;
+	j = 0;
+	while (numbers[j])
+	{
+		if (ft_atol(numbers[j][i]) > INT_MAX ||
+		ft_atol(numbers[j][i]) < INT_MIN)
+			return (1);
+		i++;
+	}
+	j++;
 	return (0);
 }

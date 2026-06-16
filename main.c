@@ -51,19 +51,16 @@ t_list    *ft_lstnew(int content) // Cria um novo no
     return (lst);
 }
 
-t_list	*programa(void)
+t_list	*create_list(int size, int *numbers[])
 {
   t_list *head = NULL;
   t_list *tail;
   t_list *node;
   
   int i = 0;
-  int numeros[] = {10, 3, 7, 152, 34, -1, 20, 10, 40, 10, 3, 14, -5};
-  int size = sizeof(numeros) / 4;
-  
   while (i < size)
   {
-    node = ft_lstnew(numeros[i]);
+    node = ft_lstnew(numbers[i]);
     if (!head)
       head = node;
     else
@@ -74,21 +71,28 @@ t_list	*programa(void)
   return (head);
 }
 
-int	main()
+int main(int argc, char **argv)
 {
-	t_list	*stack_a;
-	t_list	*temp;
-
-	stack_a = programa();
-	temp = stack_a;
-	while (temp->next)
-	{
-		printf("%d -> ", temp->content);
-		temp = temp->next;
-	}
-	printf("NULL\n");
-	return (0);
 }
+
+
+// int	main()
+// {
+// 	t_list	*stack_a;
+// 	t_list	*temp;
+
+// 	int numbers[] = {10, 3, 7, 152, 34, -1, 20, 10, 40, 10, 3, 14, -5};
+
+// 	stack_a = create_list(numbers, sizeof(numbers) / sizeof(int));
+// 	temp = stack_a;
+// 	while (temp->next)
+// 	{
+// 		printf("%d -> ", temp->content);
+// 		temp = temp->next;
+// 	}
+// 	printf("NULL\n");
+// 	return (0);
+// }
 
 // teste 2
 // Meu hobby? Amar 
