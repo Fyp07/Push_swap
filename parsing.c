@@ -6,17 +6,38 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/16 18:30:05 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/17 11:39:06 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_input	validate_flags(int argc, char **argv, t_input *input)
+int	check_errors(char **numbers, t_input *input)
+{
+	int i;
+
+	if (input->strategy == ERROR)
+		return (1);
+	if (has_repeated(numbers))
+		return (1);
+	i = 0;
+	while (numbers[i])
+	{
+		if (is_not_num(numbers[i]))
+			return (1);
+		if (in_range(numbers[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	validate_flags(int argc, char **argv, t_input *input)
 {
 	int	i;
 
 	i = 1;
+	input->bench = 0;
 	input->strategy = ADAPTIVE;
 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
@@ -28,6 +49,10 @@ t_input	validate_flags(int argc, char **argv, t_input *input)
 			input->strategy = COMPLEX;
 		else if (ft_strncmp(argv[i], "--adaptive", 10) == 0)
 			input->strategy = ADAPTIVE;
+		else if (ft_strncmp(argv[i], "--bench", 7) == 0)
+			input->bench = 1;
+		else
+			input->strategy = ERROR;
 		i++;
 	}
 	input->start = i;
@@ -39,35 +64,36 @@ int	count_args(int argc, char *argv[], int start)
 	return (argc - start);
 }
 
-int	is_not_num(char	*str)
+int	is_not_num(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
 	if (!str[i])
 		return (1);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
 	while (str[i])
 	{
-		if (str[i] < '0' && str[i] > '9')
+		if (str[i] < '0' || str[i] > '9')
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int has_repeated(char	**numbers)
+int	has_repeated(char **numbers)
 {
 	int	i;
 	int	j;
 
+	j = 0;
 	while (numbers[j])
 	{
-		i = 0;
+		i = j + 1;
 		while (numbers[i])
 		{
-			if (ft_atoi(numbers[j] == ft_atoi(numbers[i])))
+			if ((ft_atoi(numbers[j])) == (ft_atoi(numbers[i])))
 				return (1);
 			i++;
 		}
@@ -78,9 +104,9 @@ int has_repeated(char	**numbers)
 
 long	ft_atol(const char *nptr)
 {
-	long	sign;
-	long	res;
-	int	i;
+	long sign;
+	long res;
+	int i;
 
 	sign = 1;
 	res = 0;
@@ -102,21 +128,12 @@ long	ft_atol(const char *nptr)
 	return (res * sign);
 }
 
-
-int	not_in_range(char	**numbers)
+int	in_range(char *numbers)
 {
-	int	i;
-	int	j;
-	
-	i = 0;
-	j = 0;
-	while (numbers[j])
-	{
-		if (ft_atol(numbers[j][i]) > INT_MAX ||
-		ft_atol(numbers[j][i]) < INT_MIN)
-			return (1);
-		i++;
-	}
-	j++;
+	long	value;
+
+	value = ft_atol(numbers);
+	if (value > INT_MAX || value < INT_MIN)
+		return (1);
 	return (0);
 }
