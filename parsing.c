@@ -6,20 +6,16 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/17 11:39:06 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/18 13:56:33 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_errors(char **numbers, t_input *input)
+int	check_errors(char **numbers)
 {
-	int i;
-
-	if (input->strategy == ERROR)
-		return (1);
-	if (has_repeated(numbers))
-		return (1);
+	int	i;
+	
 	i = 0;
 	while (numbers[i])
 	{
@@ -29,6 +25,8 @@ int	check_errors(char **numbers, t_input *input)
 			return (1);
 		i++;
 	}
+	if (has_repeated(numbers))
+		return (1);
 	return (0);
 }
 
@@ -55,11 +53,13 @@ void	validate_flags(int argc, char **argv, t_input *input)
 			input->strategy = ERROR;
 		i++;
 	}
+	if (i == argc)
+		input->strategy = ERROR;
 	input->start = i;
 	input->count = argc - i;
 }
 
-int	count_args(int argc, char *argv[], int start)
+int	count_args(int argc, int start)
 {
 	return (argc - start);
 }
@@ -104,9 +104,9 @@ int	has_repeated(char **numbers)
 
 long	ft_atol(const char *nptr)
 {
-	long sign;
-	long res;
-	int i;
+	long	sign;
+	long	res;
+	int		i;
 
 	sign = 1;
 	res = 0;
@@ -130,7 +130,7 @@ long	ft_atol(const char *nptr)
 
 int	in_range(char *numbers)
 {
-	long	value;
+	long value;
 
 	value = ft_atol(numbers);
 	if (value > INT_MAX || value < INT_MIN)

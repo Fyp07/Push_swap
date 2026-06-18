@@ -6,11 +6,11 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:46:12 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/01 16:29:46 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/18 14:19:59 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_lstsize(t_list *lst)
 {
