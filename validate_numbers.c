@@ -6,22 +6,19 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 12:08:49 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/18 15:10:56 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/19 14:06:39 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "./Libft/libft.h"
 
-int	validate_numbers(int argc, char	**argv, t_input *input)
+int	validate_numbers(char **str, t_input *input)
 {
-	char	**args;
-
-	validate_flags(argc, argv, input);
+	validate_flags(str, input);
 	if (input->strategy == ERROR)
 		return (1);
-	args = argv + input->start;
-	if (check_errors(args) == 1)
+	if (check_errors(str + input->start) == 1)
 		return (1);
 	return (0);
 }
@@ -39,7 +36,7 @@ char	**argv_to_string(int argc, char **argv)
 	{
 		len += ft_strlen(argv[i]); 
 		if (argv[i][0] == '\0' || (argv[i][0] == ' ' && argv[i][1] == '\0'))
-			return (exit(1), NULL);
+			return (write(2, "Error\n", 6), exit(1), NULL);
 		i++;
 	}
 	len += argc;

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/18 13:56:33 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/19 14:05:12 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,32 @@ int	check_errors(char **numbers)
 	return (0);
 }
 
-void	validate_flags(int argc, char **argv, t_input *input)
+void	validate_flags(char **str, t_input *input)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	input->bench = 0;
 	input->strategy = ADAPTIVE;
-	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
+	while (str[i] && (str[i][0] == '-' && str[i][1] == '-'))
 	{
-		if (ft_strncmp(argv[i], "--simple", 8) == 0)
+		if (ft_strncmp(str[i], "--simple", 8) == 0)
 			input->strategy = SIMPLE;
-		else if (ft_strncmp(argv[i], "--medium", 8) == 0)
+		else if (ft_strncmp(str[i], "--medium", 8) == 0)
 			input->strategy = MEDIUM;
-		else if (ft_strncmp(argv[i], "--complex", 9) == 0)
+		else if (ft_strncmp(str[i], "--complex", 9) == 0)
 			input->strategy = COMPLEX;
-		else if (ft_strncmp(argv[i], "--adaptive", 10) == 0)
+		else if (ft_strncmp(str[i], "--adaptive", 10) == 0)
 			input->strategy = ADAPTIVE;
-		else if (ft_strncmp(argv[i], "--bench", 7) == 0)
+		else if (ft_strncmp(str[i], "--bench", 7) == 0)
 			input->bench = 1;
 		else
 			input->strategy = ERROR;
 		i++;
 	}
-	if (i == argc)
+	if (str[i] == NULL)
 		input->strategy = ERROR;
 	input->start = i;
-	input->count = argc - i;
 }
 
 int	count_args(int argc, int start)
