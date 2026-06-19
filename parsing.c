@@ -6,13 +6,13 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/19 14:05:12 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/19 16:42:41 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_errors(char **numbers)
+int	check_errors(char **numbers) // Uma juncao de todas as verificacoes abaixo em uma so;
 {
 	int	i;
 	
@@ -30,14 +30,14 @@ int	check_errors(char **numbers)
 	return (0);
 }
 
-void	validate_flags(char **str, t_input *input)
+void	validate_flags(char **str, t_input *input) // Verifica qual estrategia esta sendo usada;
 {
 	int	i;
 
 	i = 0;
 	input->bench = 0;
-	input->strategy = ADAPTIVE;
-	while (str[i] && (str[i][0] == '-' && str[i][1] == '-'))
+	input->strategy = ADAPTIVE; // Comeca como ADAPTIVE por padrao;
+	while (str[i] && (str[i][0] == '-' && str[i][1] == '-')) // Loop que compara as strings para alterar a estrategia;
 	{
 		if (ft_strncmp(str[i], "--simple", 8) == 0)
 			input->strategy = SIMPLE;
@@ -50,7 +50,7 @@ void	validate_flags(char **str, t_input *input)
 		else if (ft_strncmp(str[i], "--bench", 7) == 0)
 			input->bench = 1;
 		else
-			input->strategy = ERROR;
+			input->strategy = ERROR; // Se nao for valida, da erro;
 		i++;
 	}
 	if (str[i] == NULL)
@@ -58,12 +58,12 @@ void	validate_flags(char **str, t_input *input)
 	input->start = i;
 }
 
-int	count_args(int argc, int start)
+int	count_args(int argc, int start) // Funcao para encontrar onde comeca os argumentos;
 {
 	return (argc - start);
 }
 
-int	is_not_num(char *str)
+int	is_not_num(char *str) // Verifica se o argumento passado nao e um numero;
 {
 	int	i;
 
@@ -72,6 +72,8 @@ int	is_not_num(char *str)
 		return (1);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
+	if (str[i] == '\0' || str[i] == ' ')
+		return (1);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
@@ -81,7 +83,7 @@ int	is_not_num(char *str)
 	return (0);
 }
 
-int	has_repeated(char **numbers)
+int	has_repeated(char **numbers) // Verifica se ha numeros repetidos;
 {
 	int	i;
 	int	j;
@@ -101,7 +103,7 @@ int	has_repeated(char **numbers)
 	return (0);
 }
 
-long	ft_atol(const char *nptr)
+long	ft_atol(const char *nptr) // Atoi com long;
 {
 	long	sign;
 	long	res;
@@ -127,7 +129,7 @@ long	ft_atol(const char *nptr)
 	return (res * sign);
 }
 
-int	in_range(char *numbers)
+int	in_range(char *numbers) // Verifica se esta entre o int min e int max;
 {
 	long value;
 

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_numbers.c                                 :+:      :+:    :+:   */
+/*   validations.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 12:08:49 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/19 14:06:39 by fbarrada         ###   ########.fr       */
+/*   Created: 2026/06/19 15:24:08 by fbarrada          #+#    #+#             */
+/*   Updated: 2026/06/19 16:42:24 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "./Libft/libft.h"
 
-int	validate_numbers(char **str, t_input *input)
+int	processing_args(char **str, t_input *input) // Apenas uma juncao do validate flags com o check errors (valida tudo);
 {
 	validate_flags(str, input);
 	if (input->strategy == ERROR)
@@ -23,7 +23,7 @@ int	validate_numbers(char **str, t_input *input)
 	return (0);
 }
 
-char	**argv_to_string(int argc, char **argv)
+char	**argv_to_string(int argc, char **argv) // Pega um array de array e passa para um array apenas;
 {
 	int	i;
 	char	*str;
@@ -49,7 +49,7 @@ char	**argv_to_string(int argc, char **argv)
 	return (str_split);
 }
 
-char	*join(char *str, char **argv)
+char	*join(char *str, char **argv) // Junta os argumentos em uma string (usado em argv_to_string);
 {
 	int	i;
 	int	j;

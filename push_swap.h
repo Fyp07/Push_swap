@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/19 13:53:44 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/19 15:37:09 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void				ft_lstiter(t_list *lst, void (*f)(int));
 
 void				validate_flags(char **str, t_input *input);
 
-int					validate_numbers(char **str, t_input *input);
+int					processing_args(char **str, t_input *input);
 int					check_errors(char **numbers);
 int					count_args(int argc, int start);
 int					is_not_num(char *str);

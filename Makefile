@@ -6,7 +6,7 @@
 #    By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/06/18 14:16:57 by fbarrada         ###   ########.fr        #
+#    Updated: 2026/06/19 15:10:54 by fbarrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ LIBFT_SRCS = Libft/ft_isalpha.c Libft/ft_isdigit.c Libft/ft_isalnum.c Libft/ft_i
 LISTAS_SRCS = listas/ft_lstnew.c listas/ft_lstadd_front.c listas/ft_lstsize.c listas/ft_lstlast.c \
              listas/ft_lstadd_back.c listas/ft_lstdelone.c listas/ft_lstclear.c listas/ft_lstiter.c listas/ft_lstmap.c
 
-SRCS = helpers.c main.c parsing.c validate_numbers.c $(PRINTF_SRCS) $(LIBFT_SRCS) $(LISTAS_SRCS)
+SRCS = helpers.c main.c parsing.c validations.c $(PRINTF_SRCS) $(LIBFT_SRCS) $(LISTAS_SRCS)
 
 OBJ = $(SRCS:.c=.o)
 
