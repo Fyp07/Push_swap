@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:24:08 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/19 16:42:24 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/22 13:00:58 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	processing_args(char **str, t_input *input) // Apenas uma juncao do validate
 	return (0);
 }
 
-char	**argv_to_string(int argc, char **argv) // Pega um array de array e passa para um array apenas;
+char	**argv_to_string(int argc, char **argv) // Pega um array de arrays, passa para um array e depois passa para um array de arrays novamente;
 {
 	int	i;
 	char	*str;

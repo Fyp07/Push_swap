@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 17:28:40 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/18 14:19:36 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/22 13:36:55 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	{
 		current = ft_lstlast(*lst);
 		current->next = new;
+		new->previous = current;
 	}
 }

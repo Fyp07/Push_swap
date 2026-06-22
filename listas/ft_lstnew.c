@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:27:19 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/18 14:19:56 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/22 13:35:59 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	lst->value = content;
 	lst->next = NULL;
+	lst->previous = NULL;
 	return (lst);
 }

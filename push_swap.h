@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/19 15:37:09 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/22 14:23:10 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-t_list			*ft_lstnew(int content);
-t_list			*ft_lstlast(t_list *lst);
-t_list			*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
+t_list				*ft_lstnew(int content);
+t_list				*ft_lstlast(t_list *lst);
+t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
+t_list				*create_stack(char **str, int start);
 
 int					ft_lstsize(t_list *lst);
 
@@ -55,6 +56,9 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(int));
 void				ft_lstclear(t_list **lst, void (*del)(int));
 void				ft_lstiter(t_list *lst, void (*f)(int));
+
+void				print_stack(t_list *stack, char *name);
+void				ra(t_list **lista_a);
 
 void				validate_flags(char **str, t_input *input);
 

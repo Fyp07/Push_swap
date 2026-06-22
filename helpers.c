@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/19 15:10:20 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/22 14:23:25 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,24 @@
 // 	pa(lista_b, lista_a);
 // }
 
-// void	ra(t_list **lista_a)
-// {
-// 	ft_lstadd_back(lista_a, *lista_a);
-// }
+void	ra(t_list **lista_a)
+{
+	t_list *head;
+	t_list *last;
+	t_list *temp;
+	
+	head = *lista_a; // Define a cabeca da lista
+	last = ft_lstlast(*lista_a); // Define o final da lista
+	temp = head->next;
+	
+	last->next = head;
+	head->next = NULL;
+	head->previous = last;
+	head->previous = last;
+	
+	temp->previous = NULL;	
+	*lista_a = temp;	
+}
 
 // void	rb(t_list **lista_b)
 // {
