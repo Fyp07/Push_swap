@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/22 17:27:54 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/25 14:08:39 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	pb(t_list **lista_b, t_list *node_a)
 		return ;
 
 	temp = node_a->next;
-	if ((*lista_b)->next)
+	if ((*lista_b))
 	{
 		head_b = *lista_b;
 		ft_lstadd_front(lista_b, node_a);
@@ -115,7 +115,10 @@ void	pb(t_list **lista_b, t_list *node_a)
 	else
 	{
 		ft_lstadd_front(lista_b, node_a);
+		ft_printf("%d\n", node_a->value);
 		node_a = temp;
+		ft_printf("%d\n", node_a->value);
+		
 	}
 }
 
