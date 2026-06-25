@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/25 14:08:39 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:33:12 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,54 +71,53 @@ void	ss(t_list **lista_a, t_list **lista_b)
 	sb(lista_b);
 }
 
-void	pa(t_list **lista_a, t_list *node_b)
+void	pa(t_list **lista_a, t_list **node_b)
 {
 	t_list *temp;
 	t_list *head_a;
 	
-	if (!node_b)
+	if (!node_b || !(*node_b))
 		return ;
 
-	temp = node_b->next;
-	if ((*lista_a)->next)
+	temp = (*node_b)->next;
+	if ((*lista_a))
 	{
 		head_a = *lista_a;
-		ft_lstadd_front(lista_a, node_b);
-		node_b = temp;
+		ft_lstadd_front(lista_a, (*node_b));
+		(*node_b) = temp;
 		head_a->previous = *lista_a;
 		(*lista_a)->next = head_a;
 	}
 	else
 	{
-		ft_lstadd_front(lista_a, node_b);
-		node_b = temp;
+		ft_lstadd_front(lista_a, (*node_b));
+		temp->previous = NULL;
+		(*node_b) = temp;
 	}
 }
 
-void	pb(t_list **lista_b, t_list *node_a)
+void	pb(t_list **lista_b, t_list **node_a)
 {
 	t_list *temp;
 	t_list *head_b;
 	
-	if (!node_a)
+	if (!node_a || !(*node_a))
 		return ;
 
-	temp = node_a->next;
+	temp = (*node_a)->next;
 	if ((*lista_b))
 	{
 		head_b = *lista_b;
-		ft_lstadd_front(lista_b, node_a);
-		node_a = temp;
+		ft_lstadd_front(lista_b, (*node_a));
+		(*node_a) = temp;
 		head_b->previous = *lista_b;
 		(*lista_b)->next = head_b;
 	}
 	else
 	{
-		ft_lstadd_front(lista_b, node_a);
-		ft_printf("%d\n", node_a->value);
-		node_a = temp;
-		ft_printf("%d\n", node_a->value);
-		
+		ft_lstadd_front(lista_b, (*node_a));
+		temp->previous = NULL;
+		(*node_a) = temp;
 	}
 }
 
@@ -166,21 +165,42 @@ void	rr(t_list **lista_b, t_list **lista_a)
 	rb(lista_b);
 }
 
-// void	rra(t_list **lista_a)
-// {
-// 	t_list *last;
+void	rra(t_list **lista_a)
+{
+	t_list *head;
+	t_list *last;
+	t_list *temp;
 	
-// 	last = ft_lstlast(*lista_a);
-// 	ft_lstadd_front(lista_a, last);
-// }
+	head = *lista_a; // Define a cabeca da lista
+	last = ft_lstlast(*lista_a); // Define o final da lista
+	temp = last->previous;
 
-// void	rrb(t_list **lista_b)
-// {
-// 	rra(lista_b);
-// }
+	head->previous = last;
+	last->next = head;
+	temp->next = NULL; 
+	last->previous = NULL;
+	*lista_a = last;
+}
 
-// void	rrr(t_list **lista_a, t_list **lista_b)
-// {
-// 	rra(lista_a);
-// 	rrb(lista_b);
-// }
+void	rrb(t_list **lista_b)
+{
+	t_list *head;
+	t_list *last;
+	t_list *temp;
+	
+	head = *lista_b; // Define a cabeca da lista
+	last = ft_lstlast(*lista_b); // Define o final da lista
+	temp = last->previous;
+
+	head->previous = last;
+	last->next = head;
+	temp->next = NULL; 
+	last->previous = NULL;
+	*lista_b = last;
+}
+
+void	rrr(t_list **lista_a, t_list **lista_b)
+{
+	rra(lista_a);
+	rrb(lista_b);
+}

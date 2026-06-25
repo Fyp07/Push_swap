@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/25 14:12:47 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:32:30 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ int main(int argc, char **argv)
 	if (!stack_a)
 		return(write(2, "Error\n", 6), free_split(str), 1);
 	print_stack(stack_a, "A");
-	pb(&stack_b, stack_a);
+	rra(&stack_a);
 	print_stack(stack_a, "A");
-	print_stack(stack_b, "B");
 	
 
 	return (free_split(str), 0);
