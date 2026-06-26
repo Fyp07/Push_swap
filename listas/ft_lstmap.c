@@ -6,13 +6,13 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 15:19:26 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/01 16:29:17 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/18 14:25:56 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int))
 {
 	t_list	*new_list;
 	t_list	*new_node;

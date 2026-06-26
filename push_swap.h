@@ -6,15 +6,17 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/15 14:11:22 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:31:58 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "./Libft/libft.h"
+# include "./ft_printf/ft_printf.h"
+# include <limits.h>
 # include <stdio.h>
-# include "libft.h"
 # include <stdlib.h>
 
 typedef enum e_flags
@@ -24,8 +26,16 @@ typedef enum e_flags
 	COMPLEX,
 	ADAPTIVE,
 	ERROR,
-	
-}	t_flags;
+}					t_flags;
+
+typedef struct s_input
+{
+	t_flags			strategy;
+	int				*nums;
+	int				count;
+	int				start;
+	int				bench;
+}					t_input;
 
 typedef struct s_list
 {
@@ -34,14 +44,38 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-t_list				*ft_lstnew(void *content);
+t_list				*ft_lstnew(int content);
 t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int));
+t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
+t_list				*create_stack(char **str, int start);
+
 int					ft_lstsize(t_list *lst);
+
 void				ft_lstadd_front(t_list **lst, t_list *new);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(int));
 void				ft_lstclear(t_list **lst, void (*del)(int));
 void				ft_lstiter(t_list *lst, void (*f)(int));
+
+void				print_stack(t_list *stack, char *name);
+void				sa(t_list **lista);
+void				ra(t_list **lista_a);
+void				pa(t_list **lista_a, t_list **node_b);
+void				pb(t_list **lista_b, t_list **node_a);
+void				rra(t_list **lista_a);
+
+void				validate_flags(char **str, t_input *input);
+
+int					processing_args(char **str, t_input *input);
+int					check_errors(char **numbers);
+int					count_args(int argc, int start);
+int					is_not_num(char *str);
+int					has_repeated(char **numbers);
+int					in_range(char *numbers);
+
+long				ft_atol(const char *nptr);
+
+char				*join(char *str, char **argv);
+char				**argv_to_string(int argc, char **argv);
 
 #endif

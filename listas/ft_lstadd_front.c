@@ -6,11 +6,11 @@
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 15:56:07 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/01 16:27:45 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/25 14:02:14 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
