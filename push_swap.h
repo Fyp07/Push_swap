@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 14:34:24 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/29 16:47:29 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int					count_args(int argc, int start);
 int					is_not_num(char *str);
 int					has_repeated(char **numbers);
 int					in_range(char *numbers);
+int					is_sorted(int *array, int size);
 
 long				ft_atol(const char *nptr);
 
