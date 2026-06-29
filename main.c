@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/25 15:32:30 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/29 14:57:55 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,69 +38,11 @@ int main(int argc, char **argv)
 	stack_a = create_stack(str, input.start); // Cria a stack;
 	if (!stack_a)
 		return(write(2, "Error\n", 6), free_split(str), 1);
+	
 	print_stack(stack_a, "A");
-	rra(&stack_a);
+	sort_3(&stack_a);
 	print_stack(stack_a, "A");
 	
 
 	return (free_split(str), 0);
 }
-<<<<<<< HEAD
-
-
-t_list    *ft_lstnew(int content) // Cria um novo no
-{
-    t_list    *lst;
-
-    lst = malloc(sizeof(t_list));
-    if (!lst)
-        return (NULL);
-    lst->content = content;
-    lst->next = NULL;
-    return (lst);
-}
-
-t_list	*programa(void)
-{
-  t_list *head = NULL;
-  t_list *tail;
-  t_list *node;
-  
-  int i = 0;
-  int numeros[] = {10, 3, 7, 152, 34, -1, 20, 10, 40, 10, 3, 14, -5};
-  int size = sizeof(numeros) / 4;
-  
-  while (i < size)
-  {
-    node = ft_lstnew(numeros[i]);
-    if (!head)
-      head = node;
-    else
-      ft_lstadd_back(&head, node);
-    tail = node;
-    i++;
-  }
-  return (head);
-}
-
-int	main()
-{
-	t_list	*stack_a;
-	t_list	*temp;
-
-	stack_a = programa();
-	temp = stack_a;
-	while (temp->next)
-	{
-		printf("%d -> ", temp->content);
-		temp = temp->next;
-	}
-	printf("NULL\n");
-	return (0);
-}
-
-// teste
-// Meu hobby? Amar demais
-// Bora bill 67 labubu Carlinhos maia farmador de aura Vivi+Vini Casalzao
-=======
->>>>>>> a447ce169aa68a8279fdcdef1bd008d67127bab4
