@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 14:43:31 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/29 16:50:56 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,16 @@ int main(int argc, char **argv)
 		return(write(2, "Error\n", 6), free_split(str), 1);
 	
 	print_stack(stack_a, "A");
-	sort_3(&stack_a);
-	print_stack(stack_a, "A");
+	if (&is_sorted)
+	{
+		print_stack(stack_a, "A");
+		return (0);
+	}
+	else
+	{
+		sort_3(&stack_a);
+		print_stack(stack_a, "A");
+	}
 	
 
 	return (free_split(str), 0);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_sort.c                                      :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 14:54:59 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/29 16:49:49 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	sort_3(t_list **a)
 	}
 	else if (position == find_max(a) && position->next == find_min(a)) // 312
 		ra(a);
-	else if (position == find_min(a) && position->next != find_max(a)) // 123
-		return ;
 	else if (position == find_min(a) && position->next == find_max(a)) // 132
 	{
 		sa(a);
@@ -33,7 +31,7 @@ void	sort_3(t_list **a)
 	}
 	else if (position != find_max(a) && position->next == find_min(a)) // 213
 		sa(a);
-	else if (position != find_min(a) && position->next == find_max(a))
+	else if (position != find_min(a) && position->next == find_max(a)) // 231
 		rra(a);
 }
 
@@ -55,8 +53,8 @@ t_list	*find_min(t_list **list)
 
 t_list	*find_max(t_list **list)
 {
-	t_list *max;
-	t_list *position;
+	t_list	*max;
+	t_list	*position;
 
 	max = *list;
 	position = (*list)->next;
@@ -67,4 +65,24 @@ t_list	*find_max(t_list **list)
 		position = position->next;
 	}
 	return (max);
+}
+
+int	is_sorted(int *array, int size)
+{
+	int i;
+	int j;
+
+	j = 0;
+	while (j < size)
+	{
+		i = 0;
+		while (i < size - 1 - j)
+		{
+			if (array[i] > array[i + 1])
+				return (0);
+			i++;
+		}
+		j++;
+	}
+	return (1);
 }
