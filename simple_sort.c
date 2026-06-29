@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 14:45:08 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/29 14:54:59 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ void	sort_3(t_list **a)
 		sa(a);
 		rra(a);
 	}
-	if (position == find_max(a) && position->next == find_min(a)) // 312
+	else if (position == find_max(a) && position->next == find_min(a)) // 312
 		ra(a);
-	if (position == find_min(a) && position->next != find_max(a)) // 123
+	else if (position == find_min(a) && position->next != find_max(a)) // 123
 		return ;
-	if (position == find_min(a) && position->next == find_max(a)) // 132
+	else if (position == find_min(a) && position->next == find_max(a)) // 132
 	{
 		sa(a);
 		ra(a);
 	}
-	if (position != find_max(a) && position->next == find_min(a)) // 213
+	else if (position != find_max(a) && position->next == find_min(a)) // 213
 		sa(a);
-	if (position != find_min(a) && position->next == find_max(a))
+	else if (position != find_min(a) && position->next == find_max(a))
 		rra(a);
 }
 
