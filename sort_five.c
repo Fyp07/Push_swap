@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 16:49:49 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/29 17:38:26 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,22 +67,40 @@ t_list	*find_max(t_list **list)
 	return (max);
 }
 
-int	is_sorted(int *array, int size)
+int	is_sorted(t_list **array)
 {
-	int i;
-	int j;
+	t_list *position;
+	t_list *other_position;
 
-	j = 0;
-	while (j < size)
+	position = *array;
+	other_position = (*array)->next;
+	while (position)
 	{
-		i = 0;
-		while (i < size - 1 - j)
+		while (other_position)
 		{
-			if (array[i] > array[i + 1])
+			if (position->value > other_position->value)
 				return (0);
-			i++;
+			other_position = other_position->next;
 		}
-		j++;
+		position = position->next;
 	}
 	return (1);
 }
+
+// int	is_sorted(t_list **array)
+// {
+// 	t_list *position; // 1 2 3
+
+// 	position = *array;
+// 	while (position)
+// 	{
+// 		if (position > position->next)
+// 		{
+// 			ft_printf("NAO ESTA ORDENADO\n");
+// 			return (0);
+// 		}
+// 		position = position->next;
+// 	}
+// 	ft_printf("ESTA ORDENADO\n"); // TEMPORARIO (APAGAR)
+// 	return (0);
+// }

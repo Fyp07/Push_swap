@@ -6,11 +6,7 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/06/29 14:57:55 by garodri2         ###   ########.fr       */
-=======
-/*   Updated: 2026/06/29 16:50:56 by fbarrada         ###   ########.fr       */
->>>>>>> 1883889fe6fd98a02d225e99eb477a3c70b341c2
+/*   Updated: 2026/06/30 14:07:45 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +38,13 @@ int main(int argc, char **argv)
 	stack_a = create_stack(str, input.start); // Cria a stack;
 	if (!stack_a)
 		return(write(2, "Error\n", 6), free_split(str), 1);
-	
-	print_stack(stack_a, "A");
-	if (&is_sorted)
+	if (is_sorted(&stack_a))
 	{
 		print_stack(stack_a, "A");
 		return (0);
 	}
-	else
-	{
-		sort_3(&stack_a);
-		print_stack(stack_a, "A");
-	}
+	sort_3(&stack_a);
+	print_stack(stack_a, "A");
 	
 
 	return (free_split(str), 0);
