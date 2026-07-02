@@ -6,63 +6,85 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:53:20 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/02 12:15:11 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/02 16:13:39 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_stacks(t_list *stack_a, t_list *stack_b)
+int	size_b(t_list **stack)
 {
-	printf("+---------+---------+\n");
-	printf("| Stack A | Stack B |\n");
-	printf("+---------+---------+\n");
+	t_list *stack_b;
+	int	i;
 	
-	while (stack_a != NULL || stack_b != NULL)
+	stack_b = *stack;
+	i = 0;
+	while(stack_b)
 	{
-		if (stack_a)
-		{
-			printf("| %7d ", stack_a->value);
-			stack_a = stack_a->next;
-		}
-		else
-			printf("|         ");
-	
-		if (stack_b)
-		{
-			printf("| %7d |\n", stack_b->value);
-			stack_b = stack_b->next;
-		}
-		else
-			printf("|         |\n");
+		stack_b = stack_b->next;
+		i ++;		
 	}
-	
-	printf("+---------+---------+\n");
-	
+	return(i);
 }
-// void	simple_insertion(t_list **stack)
-// {
-// 	t_list	*stack_a;
-// 	t_list	*stack_b;
-// 	int		nearest_smaller_one;
-	
-// 	stack_b  = NULL;
-// 	stack_a = *stack;
-	
-// 	print_stacks(stack_a, stack_b);
 
-// 	while(stack_a->value > stack_b->value)
-// 	{
-// 		if(stack_b->value > nearest_smaller_one)
-// 			nearest_smaller_one = stack_b->value;
-// 	}
+void	simple_insertion(t_list **stack)
+{
+	t_list	*stack_a;
+	t_list	*stack_b;
+	//int		nearest_smaller_one = 0;
+	//int	size;
+
 	
-// 	if(stack_a->value < stack_a->next->value)
-// 	{
-// 		pb(&stack_b, &stack_a);
-// 	}
-// 	print_stacks(stack_a, stack_b);
-// }
+	stack_b = NULL;
+	stack_a = *stack;
+	
+	pb(&stack_b, &stack_a);
+	while(stack_a)
+	{
+		print_stack_a_b(stack_a, stack_b);
+		
+		if(stack_a->value > stack_b->value) // Se Top_A > Top_B -> Puxa de A pra B
+		{
+			pb(&stack_b, &stack_a);
+			print_stack_a_b(stack_a, stack_b);
+		}
+		if(stack_a->value < find_min(&stack_b)->value) // Se nenhum elemento de B menor que top A
+		{
+			ft_printf("ENTROU");
+			pb(&stack_b, &stack_a);
+			print_stack_a_b(stack_a, stack_b);
+			rb(&stack_b);
+			print_stack_a_b(stack_a, stack_b);
+			//rb(&stack_b);
+			
+			// size = size_b(&stack_b);
+			// while(size > 1)
+			// {
+			// 	rb(&stack_b);
+			// 	size --;
+			// 	print_stack_a_b(stack_a, stack_b);
+			// }
+		}
+		
+		// else
+		// {
+		// 	while(stack_b && nearest_smaller_one < stack_a ->value)
+		// 	{
+		// 		if(stack_b->value > nearest_smaller_one && stack_b->value < stack_a->value)
+		// 		{
+		// 			nearest_smaller_one = stack_b->value;
+		// 			ft_printf("ENCONTROU UM MENOR");
+		// 		}
+		// 		stack_b = stack_b->next;
+		// 	}
+		// }
+		printf("%d", size_b(&stack_b));
+	}
+	// if(stack_a->value < stack_a->next->value)
+	// {
+	// 	pb(&stack_b, &stack_a);
+	// }
+}
 
 
 // sa: troca os 2 primeiros elementos da stack A.

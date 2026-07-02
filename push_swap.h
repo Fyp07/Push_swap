@@ -6,7 +6,7 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/02 12:14:44 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/02 15:25:48 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void				print_stack(t_list *stack, char *name);
 void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
 void				sa(t_list **lista);
 void				ra(t_list **lista_a);
+void				rb(t_list **lista_b);
 void				pa(t_list **lista_a, t_list **node_b);
 void				pb(t_list **lista_b, t_list **node_a);
 void				rra(t_list **lista_a);
