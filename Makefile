@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
+#    By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/06/29 14:57:48 by fbarrada         ###   ########.fr        #
+#    Updated: 2026/07/02 09:53:23 by garodri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,12 @@ LIBFT_SRCS = Libft/ft_isalpha.c Libft/ft_isdigit.c Libft/ft_isalnum.c Libft/ft_i
             Libft/ft_strlcat.c Libft/ft_strchr.c Libft/ft_strrchr.c Libft/ft_strncmp.c Libft/ft_strnstr.c \
             Libft/ft_strdup.c Libft/ft_atoi.c Libft/ft_calloc.c Libft/ft_substr.c Libft/ft_strjoin.c \
             Libft/ft_strtrim.c Libft/ft_split.c Libft/ft_itoa.c Libft/ft_strmapi.c Libft/ft_striteri.c \
-            Libft/ft_putchar_fd.c Libft/ft_putstr_fd.c Libft/ft_putendl_fd.c Libft/ft_putnbr_fd.c
+            Libft/ft_putchar_fd.c Libft/ft_putstr_fd.c Libft/ft_putendl_fd.c Libft/ft_putnbr_fd.c 
 
 LISTAS_SRCS = listas/ft_lstnew.c listas/ft_lstadd_front.c listas/ft_lstsize.c listas/ft_lstlast.c \
              listas/ft_lstadd_back.c listas/ft_lstdelone.c listas/ft_lstclear.c listas/ft_lstiter.c listas/ft_lstmap.c
 
-SRCS = ft_stack.c operations.c main.c parsing.c validations.c sort_five.c $(PRINTF_SRCS) $(LIBFT_SRCS) $(LISTAS_SRCS)
+SRCS = ft_stack.c operations.c main.c parsing.c validations.c algorithms.c sort_five.c $(PRINTF_SRCS) $(LIBFT_SRCS) $(LISTAS_SRCS)
 
 OBJ = $(SRCS:.c=.o)
 

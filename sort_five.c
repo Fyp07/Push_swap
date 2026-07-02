@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 17:38:26 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:02:17 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_list	*find_max(t_list **list)
 	t_list	*position;
 
 	max = *list;
-	position = (*list)->next;
+	position = (*list)->next; // 6 1 0 5 1 3 5
 	while (position)
 	{
 		if (position->value > max->value)
@@ -104,3 +104,4 @@ int	is_sorted(t_list **array)
 // 	ft_printf("ESTA ORDENADO\n"); // TEMPORARIO (APAGAR)
 // 	return (0);
 // }
+

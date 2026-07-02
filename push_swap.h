@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 17:34:16 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:14:44 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_list				*ft_lstnew(int content);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
 t_list				*create_stack(char **str, int start);
+t_list				*create_stack_b(int first_element); 
 t_list				*find_max(t_list **list);
 t_list				*find_min(t_list **list);
 
@@ -59,6 +60,7 @@ void				ft_lstclear(t_list **lst, void (*del)(int));
 void				ft_lstiter(t_list *lst, void (*f)(int));
 
 void				print_stack(t_list *stack, char *name);
+void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
 void				sa(t_list **lista);
 void				ra(t_list **lista_a);
 void				pa(t_list **lista_a, t_list **node_b);
@@ -66,6 +68,7 @@ void				pb(t_list **lista_b, t_list **node_a);
 void				rra(t_list **lista_a);
 
 void				sort_3(t_list **a);
+void				simple_insertion(t_list **stack);
 
 void				validate_flags(char **str, t_input *input);
 
@@ -76,7 +79,6 @@ int					is_not_num(char *str);
 int					has_repeated(char **numbers);
 int					in_range(char *numbers);
 int					is_sorted(t_list **array);
-
 
 long				ft_atol(const char *nptr);
 

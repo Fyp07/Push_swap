@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/25 17:51:20 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/06/29 17:28:50 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ void	ra(t_list **lista_a)
 	last->next = head;
 	head->next = NULL;
 	head->previous = last;
-	head->previous = last;
 	
 	temp->previous = NULL;
 	*lista_a = temp;
@@ -152,7 +151,6 @@ void	rb(t_list **lista_b)
 	
 	last->next = head;
 	head->next = NULL;
-	head->previous = last;
 	head->previous = last;
 	
 	temp->previous = NULL;

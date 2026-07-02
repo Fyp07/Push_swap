@@ -6,7 +6,7 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/30 14:07:45 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/02 09:41:13 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ int main(int argc, char **argv)
 		return(write(2, "Error\n", 6), free_split(str), 1);
 	if (is_sorted(&stack_a))
 	{
-		print_stack(stack_a, "A");
+		print_stack(stack_a, "TESTE"); // Whats the diference btw this and the another print if 5241 != 5 2 4 1 //// Ok I got it 
 		return (0);
 	}
-	sort_3(&stack_a);
-	print_stack(stack_a, "A");
+	//sort_3(&stack_a);
+	//printf("\nHEAD %d:\n", stack_a->value);
+	simple_insertion(&stack_a);
+	//print_stack(stack_a, "A");
 	
 
 	return (free_split(str), 0);
