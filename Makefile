@@ -6,7 +6,7 @@
 #    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/02 12:39:12 by fbarrada         ###   ########.fr        #
+#    Updated: 2026/07/02 12:41:37 by fbarrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,11 +41,11 @@ $(NAME): $(OBJ) $(LIBFT_PATH)
 	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	$(MAKE) -C Libft/clean
+	$(MAKE) -C Libft/ clean
 	rm -f $(OBJ)
 
 fclean: clean
-	$(MAKE) -C Libft/fclean
+	$(MAKE) -C Libft/ fclean
 	rm -f $(NAME)
 	
 re: fclean all
