@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 17:34:16 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:14:37 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef enum e_flags
 typedef struct s_input
 {
 	t_flags			strategy;
-	int				*nums;
 	int				count;
 	int				start;
 	int				bench;
@@ -76,7 +75,7 @@ int					is_not_num(char *str);
 int					has_repeated(char **numbers);
 int					in_range(char *numbers);
 int					is_sorted(t_list **array);
-
+int					ft_strcmp(char *s1, char *s2);
 
 long				ft_atol(const char *nptr);
 

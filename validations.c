@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validations.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:24:08 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/22 15:09:14 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:10:03 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,18 @@ char	*join(char *str, char **argv) // Junta os argumentos em uma string (usado e
 	
 	str[k] = '\0'; 
 	return (str);
+}
+
+int	ft_strcmp(char	*s1, char	*s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return(s1[i] - s2[i]);
 }

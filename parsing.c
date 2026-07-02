@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/19 16:42:41 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:13:22 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ void	validate_flags(char **str, t_input *input) // Verifica qual estrategia esta
 	input->strategy = ADAPTIVE; // Comeca como ADAPTIVE por padrao;
 	while (str[i] && (str[i][0] == '-' && str[i][1] == '-')) // Loop que compara as strings para alterar a estrategia;
 	{
-		if (ft_strncmp(str[i], "--simple", 8) == 0)
+		if (ft_strcmp(str[i], "--simple") == 0)
 			input->strategy = SIMPLE;
-		else if (ft_strncmp(str[i], "--medium", 8) == 0)
+		else if (ft_strcmp(str[i], "--medium") == 0)
 			input->strategy = MEDIUM;
-		else if (ft_strncmp(str[i], "--complex", 9) == 0)
+		else if (ft_strcmp(str[i], "--complex") == 0)
 			input->strategy = COMPLEX;
-		else if (ft_strncmp(str[i], "--adaptive", 10) == 0)
+		else if (ft_strcmp(str[i], "--adaptive") == 0)
 			input->strategy = ADAPTIVE;
-		else if (ft_strncmp(str[i], "--bench", 7) == 0)
+		else if (ft_strcmp(str[i], "--bench") == 0)
 			input->bench = 1;
 		else
 			input->strategy = ERROR; // Se nao for valida, da erro;
@@ -56,11 +56,6 @@ void	validate_flags(char **str, t_input *input) // Verifica qual estrategia esta
 	if (str[i] == NULL)
 		input->strategy = ERROR;
 	input->start = i;
-}
-
-int	count_args(int argc, int start) // Funcao para encontrar onde comeca os argumentos;
-{
-	return (argc - start);
 }
 
 int	is_not_num(char *str) // Verifica se o argumento passado nao e um numero;
