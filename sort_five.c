@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 17:38:26 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/02 14:38:46 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,33 @@ void	sort_3(t_list **a)
 		sa(a);
 	else if (position != find_min(a) && position->next == find_max(a)) // 231
 		rra(a);
+}
+
+void	sort_5(t_list **a, t_list **b)
+{
+	t_list	*min;
+	t_list	*position;
+	int	i;
+	
+	position = *a;
+	i = 0;
+	while (i < ft_lstsize(*a) / 2)
+	{
+		min = find_min(a);
+		if (position->value == min->value)
+			pb(a, b);
+		position = position->next;
+		i++;
+	}
+	if (sizeof(a) == 3)
+	{
+		sort_3(a);
+		if (!is_sorted(b))
+			sb(b);
+		pa(a, b);
+		pa(a, b);
+		return ;	
+	}
 }
 
 t_list	*find_min(t_list **list)
@@ -67,13 +94,13 @@ t_list	*find_max(t_list **list)
 	return (max);
 }
 
-int	is_sorted(t_list **array)
+int	is_sorted(t_list **list)
 {
-	t_list *position;
-	t_list *other_position;
+	t_list	*position;
+	t_list	*other_position;
 
-	position = *array;
-	other_position = (*array)->next;
+	position = *list;
+	other_position = (*list)->next;
 	while (position)
 	{
 		while (other_position)
@@ -86,21 +113,3 @@ int	is_sorted(t_list **array)
 	}
 	return (1);
 }
-
-// int	is_sorted(t_list **array)
-// {
-// 	t_list *position; // 1 2 3
-
-// 	position = *array;
-// 	while (position)
-// 	{
-// 		if (position > position->next)
-// 		{
-// 			ft_printf("NAO ESTA ORDENADO\n");
-// 			return (0);
-// 		}
-// 		position = position->next;
-// 	}
-// 	ft_printf("ESTA ORDENADO\n"); // TEMPORARIO (APAGAR)
-// 	return (0);
-// }

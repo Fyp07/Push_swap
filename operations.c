@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/25 17:51:20 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/02 14:42:13 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,53 +71,53 @@ void	ss(t_list **lista_a, t_list **lista_b)
 	sb(lista_b);
 }
 
-void	pa(t_list **lista_a, t_list **node_b)
+void	pa(t_list **lista_a, t_list **lista_b)
 {
 	t_list *temp;
 	t_list *head_a;
 	
-	if (!node_b || !(*node_b))
+	if (!lista_b || !(*lista_b))
 		return ;
 
-	temp = (*node_b)->next;
+	temp = (*lista_b)->next;
 	if ((*lista_a))
 	{
 		head_a = *lista_a;
-		ft_lstadd_front(lista_a, (*node_b));
-		(*node_b) = temp;
+		ft_lstadd_front(lista_a, (*lista_b));
+		(*lista_b) = temp;
 		head_a->previous = *lista_a;
 		(*lista_a)->next = head_a;
 	}
 	else
 	{
-		ft_lstadd_front(lista_a, (*node_b));
+		ft_lstadd_front(lista_a, (*lista_b));
 		temp->previous = NULL;
-		(*node_b) = temp;
+		(*lista_b) = temp;
 	}
 }
 
-void	pb(t_list **lista_b, t_list **node_a)
+void	pb(t_list **lista_b, t_list **lista_a)
 {
 	t_list *temp;
 	t_list *head_b;
 	
-	if (!node_a || !(*node_a))
+	if (!lista_a || !(*lista_a))
 		return ;
 
-	temp = (*node_a)->next;
+	temp = (*lista_a)->next;
 	if ((*lista_b))
 	{
 		head_b = *lista_b;
-		ft_lstadd_front(lista_b, (*node_a));
-		(*node_a) = temp;
+		ft_lstadd_front(lista_b, (*lista_a));
+		(*lista_a) = temp;
 		head_b->previous = *lista_b;
 		(*lista_b)->next = head_b;
 	}
 	else
 	{
-		ft_lstadd_front(lista_b, (*node_a));
+		ft_lstadd_front(lista_b, (*lista_a));
 		temp->previous = NULL;
-		(*node_a) = temp;
+		(*lista_a) = temp;
 	}
 }
 

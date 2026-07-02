@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/02 12:28:33 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/02 14:42:50 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,19 @@ void				ft_lstiter(t_list *lst, void (*f)(int));
 
 void				print_stack(t_list *stack, char *name);
 void				sa(t_list **lista);
+void				sb(t_list **lista_b);
+void				ss(t_list **lista_a, t_list **lista_b);
+void				pa(t_list **lista_a, t_list **lista_b);
+void				pb(t_list **lista_b, t_list **lista_a);
 void				ra(t_list **lista_a);
-void				pa(t_list **lista_a, t_list **node_b);
-void				pb(t_list **lista_b, t_list **node_a);
+void				rb(t_list **lista_b);
+void				rr(t_list **lista_b, t_list **lista_a);
 void				rra(t_list **lista_a);
+void				rrb(t_list **lista_b);
+void				rrr(t_list **lista_a, t_list **lista_b);
 
 void				sort_3(t_list **a);
+void				sort_5(t_list **a, t_list **b);
 
 void				validate_flags(char **str, t_input *input);
 

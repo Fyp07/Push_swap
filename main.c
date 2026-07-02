@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 17:26:18 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/02 14:28:13 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 		print_stack(stack_a, "A");
 		return (0);
 	}
-	sort_3(&stack_a);
+	sort_5(&stack_a, &stack_b);
 	print_stack(stack_a, "A");
 	
 
