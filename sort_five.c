@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 15:08:41 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:15:25 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@ void	sort_5(t_list **a, t_list **b, t_count *count, t_input	*input)
 	int	i;
 	
 	count->size_a = input->count;
-	i = 0;
 	if (count->size_a == 1)
-	return ;
+		return ;
 	if (count->size_a == 2)
-	sort_2(a, count);
+		return(sort_2(a, count));
 	while (count->size_a > 3)
 	{
 		min_pos = min_position(a);
