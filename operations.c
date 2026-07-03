@@ -6,14 +6,14 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/02 14:42:13 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/03 14:27:28 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "./Libft/libft.h"
 
-void	sa(t_list **lista_a)
+void	sa(t_list **lista_a, t_count *count)
 {
 	t_list	*head;
 	t_list	*node2;
@@ -37,9 +37,10 @@ void	sa(t_list **lista_a)
 	node3->previous = head;
 
 	*lista_a = node2;
+	count->sa++;
 }
 
-void	sb(t_list **lista_b)
+void	sb(t_list **lista_b, t_count *count)
 {
 	t_list	*head;
 	t_list	*node2;
@@ -63,15 +64,19 @@ void	sb(t_list **lista_b)
 	node3->previous = head;
 
 	*lista_b = node2;
+	count->sb++;
 }
 
-void	ss(t_list **lista_a, t_list **lista_b)
+void	ss(t_list **lista_a, t_list **lista_b, t_count *count)
 {
-	sa(lista_a);
-	sb(lista_b);
+	sa(lista_a, count);
+	count->sa--;
+	sb(lista_b, count);
+	count->sb--;
+	count->ss++;
 }
 
-void	pa(t_list **lista_a, t_list **lista_b)
+void	pa(t_list **lista_a, t_list **lista_b, t_count *count)
 {
 	t_list *temp;
 	t_list *head_a;
@@ -94,9 +99,12 @@ void	pa(t_list **lista_a, t_list **lista_b)
 		temp->previous = NULL;
 		(*lista_b) = temp;
 	}
+	count->pa++;
+	count->size_b--;
+	count->size_a++;
 }
 
-void	pb(t_list **lista_b, t_list **lista_a)
+void	pb(t_list **lista_b, t_list **lista_a, t_count *count)
 {
 	t_list *temp;
 	t_list *head_b;
@@ -119,9 +127,12 @@ void	pb(t_list **lista_b, t_list **lista_a)
 		temp->previous = NULL;
 		(*lista_a) = temp;
 	}
+	count->pb++;
+	count->size_a--;
+	count->size_b++;
 }
 
-void	ra(t_list **lista_a)
+void	ra(t_list **lista_a, t_count *count)
 {
 	t_list *head;
 	t_list *last;
@@ -138,9 +149,10 @@ void	ra(t_list **lista_a)
 	
 	temp->previous = NULL;
 	*lista_a = temp;
+	count->ra++;
 }
 
-void	rb(t_list **lista_b)
+void	rb(t_list **lista_b, t_count *count)
 {
 	t_list *head;
 	t_list *last;
@@ -157,15 +169,19 @@ void	rb(t_list **lista_b)
 	
 	temp->previous = NULL;
 	*lista_b = temp;
+	count->rb++;
 }
 
-void	rr(t_list **lista_b, t_list **lista_a)
+void	rr(t_list **lista_b, t_list **lista_a, t_count *count)
 {
-	ra(lista_a);
-	rb(lista_b);
+	ra(lista_a, count);
+	count->ra--;
+	rb(lista_b, count);
+	count->rb--;
+	count->rr++;
 }
 
-void	rra(t_list **lista_a)
+void	rra(t_list **lista_a, t_count *count)
 {
 	t_list *head;
 	t_list *last;
@@ -180,9 +196,10 @@ void	rra(t_list **lista_a)
 	temp->next = NULL; 
 	last->previous = NULL;
 	*lista_a = last;
+	count->rra++;
 }
 
-void	rrb(t_list **lista_b)
+void	rrb(t_list **lista_b, t_count *count)
 {
 	t_list *head;
 	t_list *last;
@@ -197,10 +214,14 @@ void	rrb(t_list **lista_b)
 	temp->next = NULL; 
 	last->previous = NULL;
 	*lista_b = last;
+	count->rrb++;
 }
 
-void	rrr(t_list **lista_a, t_list **lista_b)
+void	rrr(t_list **lista_a, t_list **lista_b, t_count *count)
 {
-	rra(lista_a);
-	rrb(lista_b);
+	rra(lista_a, count);
+	count->rra--;
+	rrb(lista_b, count);
+	count->rra--;
+	count->rrr++;
 }

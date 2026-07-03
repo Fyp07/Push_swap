@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/02 12:27:41 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:00:41 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	validate_flags(char **str, t_input *input) // Verifica qual estrategia esta
 	int	i;
 
 	i = 0;
+	input->count = 0;
 	input->bench = 0;
 	input->strategy = ADAPTIVE; // Comeca como ADAPTIVE por padrao;
 	while (str[i] && (str[i][0] == '-' && str[i][1] == '-')) // Loop que compara as strings para alterar a estrategia;

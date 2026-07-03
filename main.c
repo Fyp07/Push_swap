@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/02 14:28:13 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:08:50 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,29 @@ void	free_split(char **argv) // Da free em tudo;
 int main(int argc, char **argv)
 {
 	t_input input;
+	t_count	*count;
 	t_list *stack_a;
 	t_list *stack_b;
 	char **str;
 	
+	count = innit_count();
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
 	str = argv_to_string(argc - 1, argv + 1); // Faz o seguinte: 1 2 "3 4 5" 6 7; -> 1 2 3 4 5 6 7;
 	if (processing_args(str, &input)) // Verifica se os argumentos sao validos
 		return (write(2, "Error\n", 6), free_split(str), 1); // Se houver um erro, retorna uma mensagem de erro, da free em tudo e retorna 1);
-	stack_a = create_stack(str, input.start); // Cria a stack;
+	stack_a = create_stack(str, input.start, &input); // Cria a stack;
 	if (!stack_a)
 		return(write(2, "Error\n", 6), free_split(str), 1);
 	if (is_sorted(&stack_a))
 	{
+		ft_printf("IS SORTED\n");
 		print_stack(stack_a, "A");
 		return (0);
 	}
-	sort_5(&stack_a, &stack_b);
+	ft_printf("Size A: %d\n", input.count);
+	sort_5(&stack_a, &stack_b, count, &input);
 	print_stack(stack_a, "A");
 	
 
