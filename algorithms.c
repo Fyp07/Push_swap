@@ -6,7 +6,7 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:53:20 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/02 16:13:39 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:12:35 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	simple_insertion(t_list **stack)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	//int		nearest_smaller_one = 0;
+	int		nearest_smaller_one = 0;
 	//int	size;
 
 	
@@ -55,29 +55,20 @@ void	simple_insertion(t_list **stack)
 			print_stack_a_b(stack_a, stack_b);
 			rb(&stack_b);
 			print_stack_a_b(stack_a, stack_b);
-			//rb(&stack_b);
-			
-			// size = size_b(&stack_b);
-			// while(size > 1)
-			// {
-			// 	rb(&stack_b);
-			// 	size --;
-			// 	print_stack_a_b(stack_a, stack_b);
-			// }
 		}
+		else 
+		{  		// RAZAO DO SEG FAULT 
+			while(stack_b && nearest_smaller_one < stack_a ->value)
+			{
+				if(stack_b->value > nearest_smaller_one && stack_b->value < stack_a->value)
+				{
+					nearest_smaller_one = stack_b->value;
+					ft_printf("ENCONTROU UM MENOR");
+				}
+				stack_b = stack_b->next;
+			}
+		}   // ATE AQUI 
 		
-		// else
-		// {
-		// 	while(stack_b && nearest_smaller_one < stack_a ->value)
-		// 	{
-		// 		if(stack_b->value > nearest_smaller_one && stack_b->value < stack_a->value)
-		// 		{
-		// 			nearest_smaller_one = stack_b->value;
-		// 			ft_printf("ENCONTROU UM MENOR");
-		// 		}
-		// 		stack_b = stack_b->next;
-		// 	}
-		// }
 		printf("%d", size_b(&stack_b));
 	}
 	// if(stack_a->value < stack_a->next->value)
