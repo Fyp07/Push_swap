@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 15:08:50 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:52:18 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,11 @@ void	free_split(char **argv) // Da free em tudo;
 int main(int argc, char **argv)
 {
 	t_input input;
-	t_count	*count;
+	static t_count	count;
 	t_list *stack_a;
 	t_list *stack_b;
 	char **str;
 	
-	count = innit_count();
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
@@ -47,7 +46,7 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	ft_printf("Size A: %d\n", input.count);
-	sort_5(&stack_a, &stack_b, count, &input);
+	sort_5(&stack_a, &stack_b, &count, &input);
 	print_stack(stack_a, "A");
 	
 
