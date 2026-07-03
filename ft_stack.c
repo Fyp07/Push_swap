@@ -6,13 +6,13 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:34:24 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/02 12:14:14 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:17:26 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*create_stack(char **str, int start)
+t_list	*create_stack(char **str, int start, t_input *input)
 {
 	t_list *head;
 	t_list *new;
@@ -26,6 +26,7 @@ t_list	*create_stack(char **str, int start)
 		if (!new)
 			return (NULL);
 		ft_lstadd_back(&head, new);
+		input->count++;
 		i++;
 	}
 	return (head);

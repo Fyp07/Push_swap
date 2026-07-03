@@ -6,33 +6,68 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/02 12:02:17 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:18:54 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_list **a)
+void	sort_2(t_list **list, t_count *count)
+{
+	if ((*list)->value > (*list)->next->value)
+		sa(list, count);
+}
+
+void	sort_3(t_list **a, t_count *count)
 {
 	t_list	*position;
 
 	position = *a;
 	if (position == find_max(a) && position->next != find_min(a)) // 321
 	{
-		sa(a);
-		rra(a);
+		sa(a, count);
+		rra(a, count);
 	}
 	else if (position == find_max(a) && position->next == find_min(a)) // 312
-		ra(a);
+		ra(a, count);
 	else if (position == find_min(a) && position->next == find_max(a)) // 132
 	{
-		sa(a);
-		ra(a);
+		sa(a, count);
+		ra(a, count);
 	}
 	else if (position != find_max(a) && position->next == find_min(a)) // 213
-		sa(a);
+		sa(a, count);
 	else if (position != find_min(a) && position->next == find_max(a)) // 231
-		rra(a);
+		rra(a, count);
+}
+
+void	sort_5(t_list **a, t_list **b, t_count *count, t_input	*input)
+{
+	int	min_pos;
+	int	i;
+	
+	count->size_a = input->count;
+	if (count->size_a == 1)
+		return ;
+	if (count->size_a == 2)
+		return(sort_2(a, count));
+	while (count->size_a > 3)
+	{
+		min_pos = min_position(a);
+		if (min_pos <= count->size_a / 2)
+			while (min_pos-- > 0)
+				ra(a, count);
+		else
+		{
+			i = count->size_a - min_pos;
+			while (i-- > 0)
+				rra(a, count);
+		}
+		pb(b, a, count);
+	}
+	sort_3(a, count);
+	while ((*b))
+		pa(a, b, count);
 }
 
 t_list	*find_min(t_list **list)
@@ -67,41 +102,54 @@ t_list	*find_max(t_list **list)
 	return (max);
 }
 
-int	is_sorted(t_list **array)
+int	min_position(t_list **list)
 {
-	t_list *position;
-	t_list *other_position;
+	t_list	*min;
+	t_list	*walk;
+	int	pos;
 
-	position = *array;
-	other_position = (*array)->next;
-	while (position)
+	min = find_min(list);
+	walk = *list;
+	pos = 0;
+	while (walk)
 	{
-		while (other_position)
-		{
-			if (position->value > other_position->value)
-				return (0);
-			other_position = other_position->next;
-		}
+		if (walk->value == min->value)
+			return(pos);
+		pos++;
+		walk = walk->next;
+	}
+	return (0);
+}
+
+int	max_position(t_list **list)
+{
+	t_list	*max;
+	t_list	*walk;
+	int	pos;
+
+	max = find_min(list);
+	walk = *list;
+	pos = 0;
+	while (walk)
+	{
+		if (walk->value == max->value)
+			return(pos);
+		pos++;
+		walk = walk->next;
+	}
+	return (0);
+}
+
+int	is_sorted(t_list **list)
+{
+	t_list	*position;
+
+	position = *list;
+	while (position->next)
+	{
+		if (position->value > position->next->value)
+			return (0);
 		position = position->next;
 	}
 	return (1);
 }
-
-// int	is_sorted(t_list **array)
-// {
-// 	t_list *position; // 1 2 3
-
-// 	position = *array;
-// 	while (position)
-// 	{
-// 		if (position > position->next)
-// 		{
-// 			ft_printf("NAO ESTA ORDENADO\n");
-// 			return (0);
-// 		}
-// 		position = position->next;
-// 	}
-// 	ft_printf("ESTA ORDENADO\n"); // TEMPORARIO (APAGAR)
-// 	return (0);
-// }
-

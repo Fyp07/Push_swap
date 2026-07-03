@@ -6,14 +6,14 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/29 17:28:50 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:16:48 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "./Libft/libft.h"
 
-void	sa(t_list **lista_a)
+void	sa(t_list **lista_a, t_count *count)
 {
 	t_list	*head;
 	t_list	*node2;
@@ -37,9 +37,10 @@ void	sa(t_list **lista_a)
 	node3->previous = head;
 
 	*lista_a = node2;
+	count->sa++;
 }
 
-void	sb(t_list **lista_b)
+void	sb(t_list **lista_b, t_count *count)
 {
 	t_list	*head;
 	t_list	*node2;
@@ -63,65 +64,75 @@ void	sb(t_list **lista_b)
 	node3->previous = head;
 
 	*lista_b = node2;
+	count->sb++;
 }
 
-void	ss(t_list **lista_a, t_list **lista_b)
+void	ss(t_list **lista_a, t_list **lista_b, t_count *count)
 {
-	sa(lista_a);
-	sb(lista_b);
+	sa(lista_a, count);
+	count->sa--;
+	sb(lista_b, count);
+	count->sb--;
+	count->ss++;
 }
 
-void	pa(t_list **lista_a, t_list **node_b)
+void	pa(t_list **lista_a, t_list **lista_b, t_count *count)
 {
 	t_list *temp;
 	t_list *head_a;
 	
-	if (!node_b || !(*node_b))
+	if (!lista_b || !(*lista_b))
 		return ;
 
-	temp = (*node_b)->next;
+	temp = (*lista_b)->next;
 	if ((*lista_a))
 	{
 		head_a = *lista_a;
-		ft_lstadd_front(lista_a, (*node_b));
-		(*node_b) = temp;
+		ft_lstadd_front(lista_a, (*lista_b));
+		(*lista_b) = temp;
 		head_a->previous = *lista_a;
 		(*lista_a)->next = head_a;
 	}
 	else
 	{
-		ft_lstadd_front(lista_a, (*node_b));
+		ft_lstadd_front(lista_a, (*lista_b));
 		temp->previous = NULL;
-		(*node_b) = temp;
+		(*lista_b) = temp;
 	}
+	count->pa++;
+	count->size_b--;
+	count->size_a++;
 }
 
-void	pb(t_list **lista_b, t_list **node_a)
+void	pb(t_list **lista_b, t_list **lista_a, t_count *count)
 {
 	t_list *temp;
 	t_list *head_b;
 	
-	if (!node_a || !(*node_a))
+	if (!lista_a || !(*lista_a))
 		return ;
 
-	temp = (*node_a)->next;
+	temp = (*lista_a)->next;
 	if ((*lista_b))
 	{
 		head_b = *lista_b;
-		ft_lstadd_front(lista_b, (*node_a));
-		(*node_a) = temp;
+		ft_lstadd_front(lista_b, (*lista_a));
+		(*lista_a) = temp;
 		head_b->previous = *lista_b;
 		(*lista_b)->next = head_b;
 	}
 	else
 	{
-		ft_lstadd_front(lista_b, (*node_a));
+		ft_lstadd_front(lista_b, (*lista_a));
 		temp->previous = NULL;
-		(*node_a) = temp;
+		(*lista_a) = temp;
 	}
+	count->pb++;
+	count->size_a--;
+	count->size_b++;
 }
 
-void	ra(t_list **lista_a)
+void	ra(t_list **lista_a, t_count *count)
 {
 	t_list *head;
 	t_list *last;
@@ -137,9 +148,10 @@ void	ra(t_list **lista_a)
 	
 	temp->previous = NULL;
 	*lista_a = temp;
+	count->ra++;
 }
 
-void	rb(t_list **lista_b)
+void	rb(t_list **lista_b, t_count *count)
 {
 	t_list *head;
 	t_list *last;
@@ -155,15 +167,19 @@ void	rb(t_list **lista_b)
 	
 	temp->previous = NULL;
 	*lista_b = temp;
+	count->rb++;
 }
 
-void	rr(t_list **lista_b, t_list **lista_a)
+void	rr(t_list **lista_b, t_list **lista_a, t_count *count)
 {
-	ra(lista_a);
-	rb(lista_b);
+	ra(lista_a, count);
+	count->ra--;
+	rb(lista_b, count);
+	count->rb--;
+	count->rr++;
 }
 
-void	rra(t_list **lista_a)
+void	rra(t_list **lista_a, t_count *count)
 {
 	t_list *head;
 	t_list *last;
@@ -178,9 +194,10 @@ void	rra(t_list **lista_a)
 	temp->next = NULL; 
 	last->previous = NULL;
 	*lista_a = last;
+	count->rra++;
 }
 
-void	rrb(t_list **lista_b)
+void	rrb(t_list **lista_b, t_count *count)
 {
 	t_list *head;
 	t_list *last;
@@ -195,10 +212,14 @@ void	rrb(t_list **lista_b)
 	temp->next = NULL; 
 	last->previous = NULL;
 	*lista_b = last;
+	count->rrb++;
 }
 
-void	rrr(t_list **lista_a, t_list **lista_b)
+void	rrr(t_list **lista_a, t_list **lista_b, t_count *count)
 {
-	rra(lista_a);
-	rrb(lista_b);
+	rra(lista_a, count);
+	count->rra--;
+	rrb(lista_b, count);
+	count->rra--;
+	count->rrr++;
 }
