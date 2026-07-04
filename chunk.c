@@ -1,13 +1,13 @@
 
 #include "push_swap.h"
 
-t_list	*set_bucket_ranks(t_list	*stack, int	total_size)
+t_list	*set_bucket_ranks(t_list *stack, int total_size)
 {
 	t_list	*current;
 	t_list	*compare;
 	t_list	*head;
-	int buckets;
-	int	rank_index;
+	int		buckets;
+	int		rank_index;
 
 	head = stack;
 	total_size = ft_lstsize(head);
@@ -27,6 +27,20 @@ t_list	*set_bucket_ranks(t_list	*stack, int	total_size)
 		current = current->next;
 	}
 	return (head);
+}
+
+int	ft_sqrt(int num)
+{
+	int	i;
+
+	i = 0;
+	while (i * i <= num)
+	{
+		if (i * i == num)
+			return (i);
+		i++;
+	}
+	return (i - 1);
 }
 
 void	print_ranks(t_list *stack)
@@ -58,51 +72,3 @@ void	print_ranks(t_list *stack)
 		bucket++;
 	}
 }
-
-// void	ft_print_array(int	*array, int n)
-// {
-// 	int	current;
-	
-// 	current = 0;
-// 	while (current <= n)
-// 	{
-// 		ft_printf("[%d]", array[current]);
-// 		if (current + 1 <= n)
-// 			ft_printf(" - ");
-// 		current++;
-// 	}
-// }
-
-
-// void	bucket(int	*array, int	n)
-// {
-// 	int	current;
-// 	int compare;
-// 	int	rank;
-// 	int menor;
-
-// 	current = 0;
-// 	compare = 1;
-// 	menor = 0;
-// 	rank = 0;
-// 	n = sizeof(array);
-// 	rank = ft_sqrt(n);
-// 	while (array[compare])
-// 	{
-// 		if (array[current] > array[compare])
-// 			menor++;
-// 		compare++;
-// 	}
-// 	current = 0;
-// 	ft_print_array(array, n);
-// 	ft_printf("\nELE E MAIOR QUE: %d numeros\n", menor);
-// }
-
-// int	main()
-// {
-// 	int array[] = {6, 1, 9, 3, 5, 10, 15, 32, 4};
-
-// 	bucket(array, 9);
-// 	return (0);
-// }
-// input->rank = 4 / 3; rank = 1; 
