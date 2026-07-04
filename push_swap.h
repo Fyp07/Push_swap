@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 15:52:52 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/04 16:30:57 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_count
 typedef struct s_list
 {
 	int				value;
+	int				rank;
 	struct s_list	*previous;
 	struct s_list	*next;
 }					t_list;
@@ -67,6 +68,7 @@ t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
 t_list				*create_stack(char **str, int start, t_input *input);
 t_list				*find_min(t_list **list);
 t_list				*find_max(t_list **list);
+t_list				*set_bucket_ranks(t_list *stack, int total_size);
 
 int					ft_lstsize(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);
@@ -76,6 +78,8 @@ void				ft_lstclear(t_list **lst, void (*del)(int));
 void				ft_lstiter(t_list *lst, void (*f)(int));
 
 void				print_stack(t_list *stack, char *name);
+void				print_ranks(t_list *stack);
+
 void				sa(t_list **lista, t_count *count);
 void				sb(t_list **lista_b, t_count *count);
 void				ss(t_list **lista_a, t_list **lista_b, t_count *count);
@@ -103,6 +107,7 @@ int					is_sorted(t_list **array);
 int					ft_strcmp(char *s1, char *s2);
 int					min_position(t_list **list);
 int					max_position(t_list **list);
+int					ft_sqrt(int num);
 
 long				ft_atol(const char *nptr);
 

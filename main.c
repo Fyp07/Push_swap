@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 15:52:18 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/04 16:33:38 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	ft_printf("Size A: %d\n", input.count);
-	sort_5(&stack_a, &stack_b, &count, &input);
+	set_bucket_ranks(stack_a, count.size_a);
+	print_ranks(stack_a);
 	print_stack(stack_a, "A");
 	
 
