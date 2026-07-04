@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/04 16:30:57 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/04 19:34:51 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void				rrr(t_list **lista_a, t_list **lista_b, t_count *count);
 void				sort_3(t_list **a, t_count *count);
 void				sort_5(t_list **a, t_list **b, t_count *count,
 						t_input *input);
+void				sort(t_list **stack_a, t_list **stack_b, t_count *count);
 
 void				validate_flags(char **str, t_input *input);
 
