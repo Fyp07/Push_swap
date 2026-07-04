@@ -6,7 +6,7 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 16:06:30 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/04 11:43:13 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,12 @@ int main(int argc, char **argv)
 		return(write(2, "Error\n", 6), free_split(str), 1);
 	if (is_sorted(&stack_a))
 	{
-		ft_printf("IS SORTED\n");
-		print_stack(stack_a, "A");
+		//ft_printf("IS SORTED\n");
+		//print_stack(stack_a, "A");
 		return (0);
 	}
-	ft_printf("Size A: %d\n", input.count);
-	sort_5(&stack_a, &stack_b, &count, &input);
-	print_stack(stack_a, "A");
-	
+	simple_insertion(&stack_a, &stack_b, &count);
+
 
 	return (free_split(str), 0);
 }

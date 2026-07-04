@@ -6,77 +6,76 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:53:20 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 15:12:35 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/04 14:00:47 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	size_b(t_list **stack)
+int nearest_position(t_list **list, int value) // Encontra a POSICAO do menor numero mais proximo de Top A
 {
-	t_list *stack_b;
+	int		min;
+	t_list	*walk;
+	int		pos;
+
+	min = value;
+	walk = *list;
+	pos = 0;
+	while (walk)
+	{
+		if (walk->value == min)
+			return (pos);
+		pos++;
+		walk = walk->next;
+	}
+	return (0);
+}
+
+int	find_nearest(t_list **stack_a, t_list **stack_b) // Encontra o menor VALOR mais proximo do Top A
+{
+	t_list	*search; // Copia da Stack B para andarmos por ela
+	t_list	*a; // Copia da Stack A
+	int		nearest_smaller_one; 
+
+	search = *stack_b;
+	a = *stack_a;
+	nearest_smaller_one = INT_MIN; 
+	while (search != NULL)
+	{
+		if (search->value > nearest_smaller_one && search->value < a->value) // Se o menor valor da Stack B for maior que o menor mais proximo && Stack B menor que Stack A menor mais proximo atualiza o valor
+		{
+			nearest_smaller_one = search->value;
+		}
+		search = search->next;
+	}
+	return (nearest_position(stack_b, nearest_smaller_one)); // Retorna posicao do menor mais proximo
+}
+
+void	rotation_b(t_list **stack_a, t_list **stack_b, t_count *count, int position) // Rotaciona a Stack B
+{
 	int	i;
-	
-	stack_b = *stack;
-	i = 0;
-	while(stack_b)
+
+	if (position <= count->size_b / 2)
+		while (position-- > 0)
+			rb(stack_b, count);
+	else
 	{
-		stack_b = stack_b->next;
-		i ++;		
+		i = count->size_b - position;
+		while (i-- > 0)
+			rrb(stack_b, count);
 	}
-	return(i);
+	pb(stack_b, stack_a, count);
 }
 
-void	simple_insertion(t_list **stack)
+void	simple_insertion(t_list **stack_a, t_list **stack_b, t_count *count) // Maestro da orquestra 
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		nearest_smaller_one = 0;
-	//int	size;
-
-	
-	stack_b = NULL;
-	stack_a = *stack;
-	
-	pb(&stack_b, &stack_a);
-	while(stack_a)
+	print_stack_a_b(*stack_a, *stack_b);
+	while (*stack_a != NULL)
 	{
-		print_stack_a_b(stack_a, stack_b);
-		
-		if(stack_a->value > stack_b->value) // Se Top_A > Top_B -> Puxa de A pra B
-		{
-			pb(&stack_b, &stack_a);
-			print_stack_a_b(stack_a, stack_b);
-		}
-		if(stack_a->value < find_min(&stack_b)->value) // Se nenhum elemento de B menor que top A
-		{
-			ft_printf("ENTROU");
-			pb(&stack_b, &stack_a);
-			print_stack_a_b(stack_a, stack_b);
-			rb(&stack_b);
-			print_stack_a_b(stack_a, stack_b);
-		}
-		else 
-		{  		// RAZAO DO SEG FAULT 
-			while(stack_b && nearest_smaller_one < stack_a ->value)
-			{
-				if(stack_b->value > nearest_smaller_one && stack_b->value < stack_a->value)
-				{
-					nearest_smaller_one = stack_b->value;
-					ft_printf("ENCONTROU UM MENOR");
-				}
-				stack_b = stack_b->next;
-			}
-		}   // ATE AQUI 
-		
-		printf("%d", size_b(&stack_b));
+		rotation_b(stack_a, stack_b, count, find_nearest(stack_a, stack_b));
 	}
-	// if(stack_a->value < stack_a->next->value)
-	// {
-	// 	pb(&stack_b, &stack_a);
-	// }
+	print_stack_a_b(*stack_a, *stack_b);
 }
-
 
 // sa: troca os 2 primeiros elementos da stack A.
 // sb: troca os 2 primeiros elementos da stack B.
@@ -89,4 +88,3 @@ void	simple_insertion(t_list **stack)
 // rra: roda a stack A para baixo (o último vai para o topo).
 // rrb: roda a stack B para baixo (o último vai para o topo).
 // rrr: faz rra e rrb ao mesmo tempo.
-
