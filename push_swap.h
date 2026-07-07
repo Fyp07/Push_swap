@@ -6,7 +6,7 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/04 11:35:22 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/07 12:29:02 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(int));
 void				ft_lstclear(t_list **lst, void (*del)(int));
 void				ft_lstiter(t_list *lst, void (*f)(int));
+int					ft_lstmin(t_list *lst);
+int					ft_lstmax(t_list *lst);
 
 void				print_stack(t_list *stack, char *name);
 void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
@@ -90,8 +92,10 @@ void				rrb(t_list **lista_b, t_count *count);
 void				rrr(t_list **lista_a, t_list **lista_b, t_count *count);
 
 void				sort_3(t_list **a, t_count *count);
-void				sort_5(t_list **a, t_list **b, t_count *count, t_input *input);
-void				simple_insertion(t_list **stack_a, t_list **stack_b, t_count *count);
+void				sort_5(t_list **a, t_list **b, t_count *count,
+						t_input *input);
+void				simple_insertion(t_list **stack_a, t_list **stack_b,
+						t_count *count);
 
 void				validate_flags(char **str, t_input *input);
 

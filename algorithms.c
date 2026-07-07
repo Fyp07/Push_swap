@@ -6,48 +6,72 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:53:20 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/07 10:01:56 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/07 12:38:25 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int nearest_position(t_list **list, int value) // Encontra a POSICAO do menor numero mais proximo de Top A
+int	index_max(t_list *stack)
 {
-	int		min;
-	t_list	*walk;
-	int		pos;
+	int	max;
+	int	pos;
 
-	min = value;
-	walk = *list;
+	if (!stack)
+		return (0);
+	max = ft_lstmax(stack);
 	pos = 0;
-	while (walk)
+	while (stack)
 	{
-		if (walk->value == min)
+		if (stack->value == max)
 			return (pos);
+		stack = stack->next;
 		pos++;
-		walk = walk->next;
 	}
 	return (0);
 }
 
-int	find_nearest(t_list **stack_b, int element_stack_a) // Encontra o menor VALOR mais proximo do Top A
+int nearest_position(t_list *stack_b, int value) 
 {
-	t_list	*search; // Copia da Stack B para andarmos por ela
-	int		nearest_smaller_one; 
+	int		min;
+	int 	max;
+	int		pos;
 
-	search = *stack_b;
-	nearest_smaller_one = INT_MIN; 
-	while (search != NULL)
+	min = ft_lstmin(stack_b);
+	max = ft_lstmax(stack_b);
+	pos = 0;
+	if(!stack_b)
+		return(0);
+	if(value < min || value > max)
+		return(index_max(stack_b));
+	while (stack_b && stack_b ->next)
 	{
-		if (search->value > nearest_smaller_one && search->value < element_stack_a) // Se o menor valor da Stack B for maior que o menor mais proximo && Stack B menor que Stack A menor mais proximo atualiza o valor
-		{
-			nearest_smaller_one = search->value;
-		}
-		search = search->next;
+		if (value < stack_b->value && value > stack_b->next->value)
+			return (pos + 1);
+		pos++;
+		stack_b = stack_b->next;
 	}
-	return (nearest_position(stack_b, nearest_smaller_one)); // Retorna posicao do menor mais proximo
+	return (pos + 1);
 }
+
+// int	find_nearest(t_list **stack_b, int element_stack_a) // Encontra o menor VALOR mais proximo do Top A
+// {
+// 	t_list	*search; // Copia da Stack B para andarmos por ela
+// 	int		nearest_smaller_one; 
+
+// 	search = *stack_b;
+// 	nearest_smaller_one = INT_MIN; 
+	
+// 	while (search && search->next)
+// 	{
+// 		if (search->value > nearest_smaller_one && search->value < element_stack_a) // Se o menor valor da Stack B for maior que o menor mais proximo && Stack B menor que Stack A menor mais proximo atualiza o valor
+// 		{
+// 			nearest_smaller_one = search->value;
+// 		}
+// 		search = search->next;
+// 	}
+// 	return (nearest_position(*stack_b, nearest_smaller_one)); // Retorna posicao do menor mais proximo
+// }
 
 
 int	cost_to_insert(t_list *stack_b, int element_stack_a, int position_element_a, int size_stack_a)
@@ -57,7 +81,7 @@ int	cost_to_insert(t_list *stack_b, int element_stack_a, int position_element_a,
 	int cost_b;
 	int cost_a;
 
-	position_element_b = find_nearest(&stack_b, element_stack_a);
+	position_element_b = nearest_position(stack_b, element_stack_a);
 	if(position_element_a <= size_stack_a / 2)
 		cost_a = position_element_a;
 	else
@@ -71,30 +95,90 @@ int	cost_to_insert(t_list *stack_b, int element_stack_a, int position_element_a,
 }
 
 
-void	rotation_b(t_list **stack_a, t_list **stack_b, t_count *count, int position) // Rotaciona a Stack B
+int search_cheapest(t_list *stack_a, t_list *stack_b)
+{
+	t_list *copy_stack_a;
+	int best_postion;
+	int	min_cost;
+	int position;
+	int cost;
+
+	copy_stack_a = stack_a;
+	min_cost = INT_MAX;
+	position = 0;
+	best_postion = 0;
+	while(copy_stack_a)
+	{
+		cost = cost_to_insert(stack_b, copy_stack_a->value, position, ft_lstsize(stack_a));
+		if(cost < min_cost)
+		{
+			min_cost = cost;
+			best_postion = position;
+		}
+		copy_stack_a = copy_stack_a->next;
+		position ++;
+	}
+	return(best_postion);
+}
+
+void	rotation_b(t_list **stack_b, t_count *count, int position) // Rotaciona a Stack B
 {
 	int	i;
-
+	int size_stack_b;
+	
+	size_stack_b = ft_lstsize(*stack_b);
 	if (position <= count->size_b / 2)
 		while (position-- > 0)
 			rb(stack_b, count);
 	else
 	{
-		i = count->size_b - position;
+		i = size_stack_b - position;
 		while (i-- > 0)
 			rrb(stack_b, count);
 	}
-	pb(stack_b, stack_a, count);
+}
+
+void	rotation_a(t_list **stack_a, t_count *count, int position) // Rotaciona a Stack B
+{
+	int	i;
+	int size_stack_a;
+	
+	size_stack_a = ft_lstsize(*stack_a);
+	if (position <= count->size_b / 2)
+		while (position-- > 0)
+			rb(stack_a, count);
+	else
+	{
+		i = size_stack_a - position;
+		while (i-- > 0)
+			rrb(stack_a, count);
+	}
 }
 
 void	simple_insertion(t_list **stack_a, t_list **stack_b, t_count *count) // Maestro da orquestra 
 {
-	print_stack_a_b(*stack_a, *stack_b);
-	while (*stack_a != NULL)
+	int position_to_insert;
+	int best_element_a;
+
+	pb(stack_b, stack_a, count);
+	//print_stack_a_b(*stack_a, *stack_b);
+	while(*stack_a)
 	{
-		rotation_b(stack_a, stack_b, count, find_nearest(stack_a, stack_b));
+		best_element_a = search_cheapest(*stack_a, *stack_b);
+		
+		rotation_a(stack_a, count, best_element_a);
+	//	print_stack_a_b(*stack_a, *stack_b);
+		
+		position_to_insert = nearest_position(*stack_b, (*stack_a)->value);
+		
+		rotation_b(stack_b, count, position_to_insert);
+	//	print_stack_a_b(*stack_a, *stack_b);
+		
+		pb(stack_b, stack_a, count);
+	//	print_stack_a_b(*stack_a, *stack_b);
 	}
-	print_stack_a_b(*stack_a, *stack_b);
+	//printf("CHEGOU NO FINAL");
+	
 }
 
 // sa: troca os 2 primeiros elementos da stack A.
