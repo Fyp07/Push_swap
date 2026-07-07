@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 14:27:28 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/04 11:53:45 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	sa(t_list **lista_a, t_count *count)
 
 	*lista_a = node2;
 	count->sa++;
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_list **lista_b, t_count *count)
@@ -65,6 +66,7 @@ void	sb(t_list **lista_b, t_count *count)
 
 	*lista_b = node2;
 	count->sb++;
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_list **lista_a, t_list **lista_b, t_count *count)
@@ -74,6 +76,7 @@ void	ss(t_list **lista_a, t_list **lista_b, t_count *count)
 	sb(lista_b, count);
 	count->sb--;
 	count->ss++;
+	write(1, "ss\n", 3);
 }
 
 void	pa(t_list **lista_a, t_list **lista_b, t_count *count)
@@ -102,6 +105,7 @@ void	pa(t_list **lista_a, t_list **lista_b, t_count *count)
 	count->pa++;
 	count->size_b--;
 	count->size_a++;
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_list **lista_b, t_list **lista_a, t_count *count)
@@ -130,6 +134,7 @@ void	pb(t_list **lista_b, t_list **lista_a, t_count *count)
 	count->pb++;
 	count->size_a--;
 	count->size_b++;
+	write(1, "pb\n", 3);
 }
 
 void	ra(t_list **lista_a, t_count *count)
@@ -145,11 +150,11 @@ void	ra(t_list **lista_a, t_count *count)
 	last->next = head;
 	head->next = NULL;
 	head->previous = last;
-	head->previous = last;
 	
 	temp->previous = NULL;
 	*lista_a = temp;
 	count->ra++;
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_list **lista_b, t_count *count)
@@ -165,11 +170,11 @@ void	rb(t_list **lista_b, t_count *count)
 	last->next = head;
 	head->next = NULL;
 	head->previous = last;
-	head->previous = last;
 	
 	temp->previous = NULL;
 	*lista_b = temp;
 	count->rb++;
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_list **lista_b, t_list **lista_a, t_count *count)
@@ -179,6 +184,7 @@ void	rr(t_list **lista_b, t_list **lista_a, t_count *count)
 	rb(lista_b, count);
 	count->rb--;
 	count->rr++;
+	write(1, "rr\n", 3);
 }
 
 void	rra(t_list **lista_a, t_count *count)
@@ -197,6 +203,7 @@ void	rra(t_list **lista_a, t_count *count)
 	last->previous = NULL;
 	*lista_a = last;
 	count->rra++;
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_list **lista_b, t_count *count)
@@ -215,6 +222,7 @@ void	rrb(t_list **lista_b, t_count *count)
 	last->previous = NULL;
 	*lista_b = last;
 	count->rrb++;
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_list **lista_a, t_list **lista_b, t_count *count)
@@ -224,4 +232,5 @@ void	rrr(t_list **lista_a, t_list **lista_b, t_count *count)
 	rrb(lista_b, count);
 	count->rra--;
 	count->rrr++;
+	write(1, "rrr\n", 4);
 }

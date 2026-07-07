@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/06 16:47:53 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/07 15:55:07 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_list	*find_max(t_list **list)
 	t_list	*position;
 
 	max = *list;
-	position = (*list)->next;
+	position = (*list)->next; // 6 1 0 5 1 3 5
 	while (position)
 	{
 		if (position->value > max->value)

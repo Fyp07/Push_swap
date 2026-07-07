@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:34:24 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/07 15:34:02 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/07 15:54:27 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_list	*create_stack(char **str, int start, t_input *input, t_count *count)
 {
-	t_list *head;
-	t_list *new;
-	int	i;
+	t_list	*head;
+	t_list	*new;
+	int		i;
 
 	head = NULL;
 	i = start;
@@ -46,12 +46,12 @@ void	print_stack(t_list *stack, char *name)
 	ft_printf("\n");
 }
 
-void print_stack_a_b(t_list *stack_a, t_list *stack_b)
+void	print_stack_a_b(t_list *stack_a, t_list *stack_b)
 {
 	printf("+---------+---------+\n");
 	printf("| Stack A | Stack B |\n");
 	printf("+---------+---------+\n");
-	
+
 	while (stack_a != NULL || stack_b != NULL)
 	{
 		if (stack_a)
@@ -61,7 +61,7 @@ void print_stack_a_b(t_list *stack_a, t_list *stack_b)
 		}
 		else
 			printf("|         ");
-	
+
 		if (stack_b)
 		{
 			printf("| %7d |\n", stack_b->value);
@@ -70,7 +70,6 @@ void print_stack_a_b(t_list *stack_a, t_list *stack_b)
 		else
 			printf("|         |\n");
 	}
-	
+
 	printf("+---------+---------+\n");
-	
 }
