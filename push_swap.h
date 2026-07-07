@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/06 15:40:35 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/07 14:53:32 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
 t_list				*create_stack(char **str, int start, t_input *input);
 t_list				*find_min(t_list **list);
 t_list				*find_max(t_list **list);
-t_list				*set_bucket_ranks(t_list *stack, int total_size);
+t_list				*set_bucket_ranks(t_list **stack, int total_size);
 
 int					ft_lstsize(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);
@@ -95,7 +95,6 @@ void				rrr(t_list **lista_a, t_list **lista_b, t_count *count);
 void				sort_3(t_list **a, t_count *count);
 void				sort_5(t_list **a, t_list **b, t_count *count,
 						t_input *input);
-void				sort(t_list **stack_a, t_list **stack_b, t_count *count);
 
 void				validate_flags(char **str, t_input *input);
 
@@ -109,7 +108,10 @@ int					ft_strcmp(char *s1, char *s2);
 int					min_position(t_list **list);
 int					max_position(t_list **list);
 int					ft_sqrt(int num);
-int					find_max_rank(t_list **list);
+int					has_rank(t_list *list, int rank);
+int					number_of_ranks(t_list *list);
+int					find_next_rank(t_list *list, int rank);
+void				search_ranks(t_list **a, t_list **b, t_count *count);
 
 long				ft_atol(const char *nptr);
 

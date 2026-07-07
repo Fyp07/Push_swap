@@ -6,7 +6,7 @@
 #    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/04 19:35:00 by fbarrada         ###   ########.fr        #
+#    Updated: 2026/07/07 14:19:03 by fbarrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ PRINTF_SRCS = ft_printf/ft_printf.c ft_printf/ft_printptr.c ft_printf/printf_hel
 LISTAS_SRCS = listas/ft_lstnew.c listas/ft_lstadd_front.c listas/ft_lstsize.c listas/ft_lstlast.c \
 				listas/ft_lstadd_back.c
 
-SRCS = ft_stack.c operations.c main.c parsing.c validations.c sort_five.c chunk.c insertion.c $(PRINTF_SRCS) $(LIBFT_SRCS) $(LISTAS_SRCS)
+SRCS = ft_stack.c operations.c main.c parsing.c validations.c sort_five.c chunk.c ranks.c $(PRINTF_SRCS) $(LIBFT_SRCS) $(LISTAS_SRCS)
 
 OBJ = $(SRCS:.c=.o)
 
