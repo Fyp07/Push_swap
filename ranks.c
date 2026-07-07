@@ -15,7 +15,7 @@ int	number_of_ranks(t_list *list)
 	return (max);
 }
 
-int	has_rank(t_list *list, int	rank)
+int	has_rank(t_list *list, int rank)
 {
 	while (list)
 	{
@@ -34,10 +34,7 @@ int	find_next_rank(t_list *list, int rank)
 	while (list)
 	{
 		if (list->rank == rank)
-		{
-			ft_printf("Rank: %d\n", list->rank);
-			return (pos);
-		}
+		   return (pos);
 		list = list->next;
 		pos++;
 	}
@@ -53,6 +50,7 @@ void	search_ranks(t_list **a, t_list **b, t_count *count)
 
 	quantity = number_of_ranks(*a);
 	rank = 0;
+	ft_printf("Size: %d\n", count->size_a);
 	while (rank <= quantity) // 0 <= 2 -> 1 == 0 // 21 -> 3 -> 45 -> 1
 	{
 		while (has_rank(*a, rank))

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/07 14:53:03 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/07 15:36:02 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	str = argv_to_string(argc - 1, argv + 1); // Faz o seguinte: 1 2 "3 4 5" 6 7; -> 1 2 3 4 5 6 7;
 	if (processing_args(str, &input)) // Verifica se os argumentos sao validos
 		return (write(2, "Error\n", 6), free_split(str), 1); // Se houver um erro, retorna uma mensagem de erro, da free em tudo e retorna 1);
-	stack_a = create_stack(str, input.start, &input); // Cria a stack;
+	stack_a = create_stack(str, input.start, &input, &count); // Cria a stack;
 	if (!stack_a)
 		return(write(2, "Error\n", 6), free_split(str), 1);
 	if (is_sorted(&stack_a))
@@ -46,9 +46,7 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	set_bucket_ranks(&stack_a, count.size_a);
-	ft_printf("Size A: %d\n", input.count);
 	print_ranks(stack_a);
-	ft_printf("\nNumero de ranks: %d\n", number_of_ranks(stack_a));
 	search_ranks(&stack_a, &stack_b, &count);
 	print_stack(stack_a, "A");
 	print_stack(stack_b, "B");

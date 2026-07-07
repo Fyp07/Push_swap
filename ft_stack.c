@@ -6,13 +6,13 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:34:24 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/07 14:55:49 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/07 15:34:02 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*create_stack(char **str, int start, t_input *input)
+t_list	*create_stack(char **str, int start, t_input *input, t_count *count)
 {
 	t_list *head;
 	t_list *new;
@@ -29,6 +29,7 @@ t_list	*create_stack(char **str, int start, t_input *input)
 		input->count++;
 		i++;
 	}
+	count->size_a = input->count;
 	return (head);
 }
 
@@ -37,7 +38,7 @@ void	print_stack(t_list *stack, char *name)
 	ft_printf("Stack %s: ", name);
 	while (stack)
 	{
-		ft_printf("[[%d]", stack->value, stack->rank);
+		ft_printf("[%d]", stack->value);
 		if (stack->next)
 			ft_printf(" -> ");
 		stack = stack->next;

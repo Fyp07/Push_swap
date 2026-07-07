@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/07 14:53:32 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/07 15:34:42 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_list
 t_list				*ft_lstnew(int content);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
-t_list				*create_stack(char **str, int start, t_input *input);
+t_list				*create_stack(char **str, int start, t_input *input, t_count *count);
 t_list				*find_min(t_list **list);
 t_list				*find_max(t_list **list);
 t_list				*set_bucket_ranks(t_list **stack, int total_size);
