@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/07 15:55:41 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/07 18:14:58 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ typedef struct s_list
 t_list				*ft_lstnew(int content);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
-t_list				*create_stack(char **str, int start, t_input *input, t_count *count);
+t_list				*create_stack(char **str, int start, t_input *input,
+						t_count *count);
 t_list				*find_min(t_list **list);
 t_list				*find_max(t_list **list);
 t_list				*set_bucket_ranks(t_list **stack, int total_size);
@@ -84,17 +85,18 @@ void				print_ranks(t_list *stack);
 
 void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
 void				sa(t_list **lista, t_count *count);
-void				sb(t_list **lista_b, t_count *count);
-void				ss(t_list **lista_a, t_list **lista_b, t_count *count);
-void				pa(t_list **lista_a, t_list **lista_b, t_count *count);
-void				pb(t_list **lista_b, t_list **lista_a, t_count *count);
-void				ra(t_list **lista_a, t_count *count);
-void				rb(t_list **lista_b, t_count *count);
-void				rr(t_list **lista_b, t_list **lista_a, t_count *count);
-void				rra(t_list **lista_a, t_count *count);
-void				rrb(t_list **lista_b, t_count *count);
-void				rrr(t_list **lista_a, t_list **lista_b, t_count *count);
+void				sb(t_list **list_b, t_count *count);
+void				ss(t_list **list_a, t_list **list_b, t_count *count);
+void				pa(t_list **list_a, t_list **list_b, t_count *count);
+void				pb(t_list **list_b, t_list **list_a, t_count *count);
+void				ra(t_list **list_a, t_count *count);
+void				rb(t_list **list_b, t_count *count);
+void				rr(t_list **list_b, t_list **list_a, t_count *count);
+void				rra(t_list **list_a, t_count *count);
+void				rrb(t_list **list_b, t_count *count);
+void				rrr(t_list **list_a, t_list **list_b, t_count *count);
 
+void				sort_2(t_list **list, t_count *count);
 void				sort_3(t_list **a, t_count *count);
 void				sort_5(t_list **a, t_list **b, t_count *count,
 						t_input *input);

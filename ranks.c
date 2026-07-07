@@ -51,7 +51,7 @@ void	search_ranks(t_list **a, t_list **b, t_count *count)
 	quantity = number_of_ranks(*a);
 	rank = 0;
 	ft_printf("Size: %d\n", count->size_a);
-	while (rank <= quantity) // 0 <= 2 -> 1 == 0 // 21 -> 3 -> 45 -> 1
+	while (rank <= quantity)
 	{
 		while (has_rank(*a, rank))
 		{
