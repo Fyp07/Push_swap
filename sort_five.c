@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 15:15:25 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/06 16:47:53 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int	max_position(t_list **list)
 	t_list	*walk;
 	int	pos;
 
-	max = find_min(list);
+	max = find_max(list);
 	walk = *list;
 	pos = 0;
 	while (walk)

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/04 19:34:51 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/06 15:40:35 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int					ft_strcmp(char *s1, char *s2);
 int					min_position(t_list **list);
 int					max_position(t_list **list);
 int					ft_sqrt(int num);
+int					find_max_rank(t_list **list);
 
 long				ft_atol(const char *nptr);
 
