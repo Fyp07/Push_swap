@@ -50,7 +50,6 @@ void	search_ranks(t_list **a, t_list **b, t_count *count)
 
 	quantity = number_of_ranks(*a);
 	rank = 0;
-	ft_printf("Size: %d\n", count->size_a);
 	while (rank <= quantity)
 	{
 		while (has_rank(*a, rank))
@@ -74,7 +73,7 @@ void	search_ranks(t_list **a, t_list **b, t_count *count)
 	}
 }
 
-void	print_ranks(t_list *stack)
+void	print_all_ranks(t_list *stack)
 {
 	t_list *current;
 	int bucket;

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/07 18:14:58 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/08 12:36:57 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,20 @@ void				ft_lstiter(t_list *lst, void (*f)(int));
 int					ft_lstmin(t_list *lst);
 int					ft_lstmax(t_list *lst);
 
+int					index_max(t_list *stack);
+int					nearest_position(t_list *stack_b, int value);
+int					find_nearest(t_list **stack_b, int element_stack_a);
+int					cost_to_insert(t_list *stack_b, int element_stack_a,
+						int position_element_a, int size_stack_a);
+int					search_cheapest(t_list *stack_a, t_list *stack_b);
+void				rotation_b(t_list **stack_b, t_count *count, int position);
+void				rotation_a(t_list **stack_a, t_count *count, int position);
+void				go_min(t_list **stack_b, t_count *count);
+void				go_back_home(t_list **stack_a, t_list **stack_b,
+						t_count *count);
+
 void				print_stack(t_list *stack, char *name);
-void				print_ranks(t_list *stack);
+void				print_all_ranks(t_list *stack);
 
 void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
 void				sa(t_list **lista, t_count *count);
@@ -102,6 +114,10 @@ void				sort_5(t_list **a, t_list **b, t_count *count,
 						t_input *input);
 void				simple_insertion(t_list **stack_a, t_list **stack_b,
 						t_count *count);
+void				chunk_insertion(t_list **stack_a, t_list **stack_b,
+						int rank, t_count *count);
+void				chunk_sort(t_list **stack_a, t_list **stack_b,
+						t_count *count, t_input *input);
 
 void				validate_flags(char **str, t_input *input);
 
