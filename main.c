@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/08 14:50:32 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:43:49 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int main(int argc, char **argv)
 		// print_stack(stack_a, "A");
 		return (0);
 	}
-	// chunk_sort(&stack_a, &stack_b, &count, &input);
+	chunk_sort(&stack_a, &stack_b, &count, &input);
 
-	simple_insertion(&stack_a, &stack_b, &count);
+	// simple_insertion(&stack_a, &stack_b, &count);
 	
 	return (free_split(str), 0);
 }

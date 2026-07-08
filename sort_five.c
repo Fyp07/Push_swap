@@ -6,19 +6,19 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/07 15:55:07 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:52:48 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_2(t_list **list, t_count *count)
+void	sort_two(t_list **list, t_count *count)
 {
 	if ((*list)->value > (*list)->next->value)
 		sa(list, count);
 }
 
-void	sort_3(t_list **a, t_count *count)
+void	sort_three(t_list **a, t_count *count)
 {
 	t_list	*position;
 
@@ -41,7 +41,7 @@ void	sort_3(t_list **a, t_count *count)
 		rra(a, count);
 }
 
-void	sort_5(t_list **a, t_list **b, t_count *count, t_input	*input)
+void	sort_five(t_list **a, t_list **b, t_count *count, t_input	*input)
 {
 	int	min_pos;
 	int	i;
@@ -50,7 +50,7 @@ void	sort_5(t_list **a, t_list **b, t_count *count, t_input	*input)
 	if (count->size_a == 1)
 		return ;
 	if (count->size_a == 2)
-		return(sort_2(a, count));
+		return(sort_two(a, count));
 	while (count->size_a > 3)
 	{
 		min_pos = min_position(a);
@@ -65,7 +65,7 @@ void	sort_5(t_list **a, t_list **b, t_count *count, t_input	*input)
 		}
 		pb(b, a, count);
 	}
-	sort_3(a, count);
+	sort_three(a, count);
 	while ((*b))
 		pa(a, b, count);
 }

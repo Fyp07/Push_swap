@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/08 12:36:57 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:52:04 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void				go_back_home(t_list **stack_a, t_list **stack_b,
 						t_count *count);
 
 void				print_stack(t_list *stack, char *name);
-void				print_all_ranks(t_list *stack);
+void				print_ranks(t_list *stack);
 
 void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
 void				sa(t_list **lista, t_count *count);
@@ -108,9 +108,9 @@ void				rra(t_list **list_a, t_count *count);
 void				rrb(t_list **list_b, t_count *count);
 void				rrr(t_list **list_a, t_list **list_b, t_count *count);
 
-void				sort_2(t_list **list, t_count *count);
-void				sort_3(t_list **a, t_count *count);
-void				sort_5(t_list **a, t_list **b, t_count *count,
+void				sort_two(t_list **list, t_count *count);
+void				sort_three(t_list **a, t_count *count);
+void				sort_five(t_list **a, t_list **b, t_count *count,
 						t_input *input);
 void				simple_insertion(t_list **stack_a, t_list **stack_b,
 						t_count *count);
@@ -133,8 +133,7 @@ int					max_position(t_list **list);
 int					ft_sqrt(int num);
 int					has_rank(t_list *list, int rank);
 int					number_of_ranks(t_list *list);
-int					find_next_rank(t_list *list, int rank);
-void				search_ranks(t_list **a, t_list **b, t_count *count);
+int					find_rank_pos(t_list *list, int rank);
 
 long				ft_atol(const char *nptr);
 

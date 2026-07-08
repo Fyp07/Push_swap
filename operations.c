@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/08 14:51:20 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:22:43 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ void	sa(t_list **list_a, t_count *count)
 	if (!list_a || !(*list_a)->next)
 		return ;
 		
-	// Atribuindo valores
 	head = *list_a;
 	node2 = head->next;
 	node3 = node2->next;
 
-	// Troca
 	head->next = node3;
 	head->previous = node2;
 	
@@ -50,12 +48,10 @@ void	sb(t_list **list_b, t_count *count)
 	if (!list_b || !(*list_b)->next)
 		return ;
 		
-	// Atribuindo valores
 	head = *list_b;
 	node2 = head->next;
 	node3 = node2->next;
 
-	// Troca
 	head->next = node3;
 	head->previous = node2;
 	
@@ -143,8 +139,8 @@ void	ra(t_list **list_a, t_count *count)
 	t_list *last;
 	t_list *temp;
 	
-	head = *list_a; // Define a cabeca da lista
-	last = ft_lstlast(*list_a); // Define o final da lista
+	head = *list_a;
+	last = ft_lstlast(*list_a);
 	temp = head->next;
 	
 	last->next = head;
@@ -163,8 +159,8 @@ void	rb(t_list **list_b, t_count *count)
 	t_list *last;
 	t_list *temp;
 	
-	head = *list_b; // Define a cabeca da lista
-	last = ft_lstlast(*list_b); // Define o final da lista
+	head = *list_b;
+	last = ft_lstlast(*list_b);
 	temp = head->next;
 	
 	last->next = head;
@@ -193,8 +189,8 @@ void	rra(t_list **list_a, t_count *count)
 	t_list *last;
 	t_list *temp;
 	
-	head = *list_a; // Define a cabeca da lista
-	last = ft_lstlast(*list_a); // Define o final da lista
+	head = *list_a;
+	last = ft_lstlast(*list_a);
 	temp = last->previous;
 
 	head->previous = last;
@@ -212,8 +208,8 @@ void	rrb(t_list **list_b, t_count *count)
 	t_list *last;
 	t_list *temp;
 	
-	head = *list_b; // Define a cabeca da lista
-	last = ft_lstlast(*list_b); // Define o final da lista
+	head = *list_b;
+	last = ft_lstlast(*list_b);
 	temp = last->previous;
 
 	head->previous = last;
