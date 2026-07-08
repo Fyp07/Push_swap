@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_helpers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 12:26:47 by garodri2          #+#    #+#             */
-/*   Updated: 2026/07/07 12:27:34 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/08 17:47:58 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,19 @@ int	ft_lstmax(t_list *lst)
 		lst = lst->next;
 	}
 	return (max);
+}
+
+void	free_stack(t_list **list)
+{
+	t_list	*tmp;
+
+	if (!list || !*list)
+		return ;
+	while (*list)
+	{
+		tmp = (*list)->next;
+		free(*list);
+		*list = tmp;
+	}
+	*list = NULL;
 }

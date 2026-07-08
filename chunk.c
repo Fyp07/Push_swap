@@ -65,6 +65,12 @@ void	chunk_insertion(t_list **stack_a, t_list **stack_b, int	rank, t_count *coun
 
 	while(has_rank(*stack_a, rank))
 	{
+		if (is_sorted(stack_a) && is_stack_b_sorted(stack_b))
+		{
+			ft_printf("ENTROU\n");
+			go_back_home(stack_a, stack_b, count);
+			break;
+		}
 		best_element_a = chunk_search_cheapest(*stack_a, *stack_b, rank);
 		rotation_a(stack_a, count, best_element_a);	
 		position_to_insert = find_nearest(stack_b, (*stack_a)->value);

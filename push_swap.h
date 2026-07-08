@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/08 15:52:04 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/08 17:48:13 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void				chunk_sort(t_list **stack_a, t_list **stack_b,
 						t_count *count, t_input *input);
 
 void				validate_flags(char **str, t_input *input);
+void				free_stack(t_list **list);
 
 int					processing_args(char **str, t_input *input);
 int					check_errors(char **numbers);
@@ -127,6 +128,7 @@ int					is_not_num(char *str);
 int					has_repeated(char **numbers);
 int					in_range(char *numbers);
 int					is_sorted(t_list **array);
+int					is_stack_b_sorted(t_list **list);
 int					ft_strcmp(char *s1, char *s2);
 int					min_position(t_list **list);
 int					max_position(t_list **list);

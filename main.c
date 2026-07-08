@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/08 15:43:49 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/08 17:48:40 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	soma_movimentos(t_count *count) // TEMPORARIO
 
 	total = count->pa + count->pb + count->ra + count->rb + count->rr
 		+ count->rra + count->rrb + count->rrr + count->sa + count->sb;
+	ft_printf("Total de movimentos: %d\n", total);
 	return (total); 
 }
 
@@ -55,8 +56,10 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	chunk_sort(&stack_a, &stack_b, &count, &input);
+	// soma_movimentos(&count);
+	// print_stack_a_b(stack_a, stack_b);
 
 	// simple_insertion(&stack_a, &stack_b, &count);
 	
-	return (free_split(str), 0);
+	return (free_split(str), free_stack(&stack_a), 0);
 }
