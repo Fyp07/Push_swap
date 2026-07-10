@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 16:15:40 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:17:51 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	sort_five(t_list **a, t_list **b, t_count *count, t_input	*input)
 	int	min_pos;
 	int	i;
 	
-	
+	(void)
 	if (count->size_a == 1)
 		return ;
 	else if (count->size_a == 2)
