@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/08 17:34:37 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:09:12 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 void	sort_two(t_list **list, t_count *count)
 {
-	if ((*list)->value > (*list)->next->value)
-		sa(list, count);
+	int	temp;
+
+	if (!list || (*list)->next == NULL)
+		return ;
+	temp = (*list)->value;
+	(*list)->value = (*list)->next->value;
+	(*list)->next->value = temp;
+	write(1, "sa\n", 3);
+	count->sa++;
 }
 
 void	sort_three(t_list **a, t_count *count)
@@ -46,10 +53,9 @@ void	sort_five(t_list **a, t_list **b, t_count *count, t_input	*input)
 	int	min_pos;
 	int	i;
 	
-	count->size_a = input->count;
 	if (count->size_a == 1)
 		return ;
-	if (count->size_a == 2)
+	else if (count->size_a == 2)
 		return(sort_two(a, count));
 	while (count->size_a > 3)
 	{

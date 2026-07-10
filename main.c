@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 14:59:39 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:07:43 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ int main(int argc, char **argv)
 	// simple_insertion(&stack_a, &stack_b, &count);
 	// print_stack_a_b(stack_a, stack_b);
 	strategy(&stack_a, &stack_b, &input, &count);
+	// sort_two(&stack_a, &count);
+	// sort_five(&stack_a, &stack_b, &count);
+	print_stack(stack_a, "A");
 	
 	return (free_split(str), free_stack(&stack_a), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 14:59:51 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:08:59 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "./Libft/libft.h"
-# include "./ft_printf/ft_printf.h"
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -70,7 +69,8 @@ t_list				*create_stack(char **str, int start, t_input *input,
 						t_count *count);
 t_list				*find_min(t_list **list);
 t_list				*find_max(t_list **list);
-t_list				*set_bucket_ranks(t_list **stack, int total_size, t_flags flag);
+t_list				*set_bucket_ranks(t_list **stack, int total_size,
+						t_flags flag);
 
 int					ft_lstsize(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);
@@ -99,6 +99,12 @@ void				print_ranks(t_list *stack);
 void				print_benchmark(t_input *input, t_count *count);
 void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
 
+void				ft_printchar(char c);
+void				ft_printstr(char *str);
+void				ft_printnbr(int n);
+void				ft_print_double(double n);
+void				ft_printf(char *str, ...);
+
 void				sa(t_list **lista, t_count *count);
 void				sb(t_list **list_b, t_count *count);
 void				ss(t_list **list_a, t_list **list_b, t_count *count);
@@ -116,7 +122,7 @@ void				sort_three(t_list **a, t_count *count);
 void				sort_five(t_list **a, t_list **b, t_count *count,
 						t_input *input);
 void				simple_insertion(t_list **stack_a, t_list **stack_b,
-						t_count *count);
+						t_count *count, t_input *input);
 void				chunk_insertion(t_list **stack_a, t_list **stack_b,
 						int rank, t_count *count);
 void				chunk_sort(t_list **stack_a, t_list **stack_b,

@@ -3,8 +3,8 @@
 
 float compute_disorder(t_list **stack_a)
 {
-	int	mistakes;
-	int	total_pairs;
+	float	mistakes;
+	float	total_pairs;
 	t_list	*walk;
 	t_list	*next;
 

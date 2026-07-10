@@ -6,7 +6,7 @@
 #    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/10 14:59:11 by fbarrada         ###   ########.fr        #
+#    Updated: 2026/07/10 15:10:30 by fbarrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,6 @@ LIBFT_PATH = Libft/libft.a
 
 OBJ_DIR = obj
 
-PRINTF_SRCS = ft_printf/ft_printf.c \
-			  ft_printf/ft_printptr.c \
-			  ft_printf/printf_helpers.c
-
 LISTAS_SRCS = listas/ft_lstnew.c \
 			  listas/ft_lstadd_front.c \
 			  listas/ft_lst_helpers.c \
@@ -42,7 +38,10 @@ SRCS = ft_stack.c \
 	   chunk.c \
 	   algorithms.c \
 	   ranks.c \
-	   $(PRINTF_SRCS) \
+	   ft_printf.c \
+	   bench.c \
+	   choose_strategy.c \
+	   disorder.c \
 	   $(LISTAS_SRCS)
 
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
