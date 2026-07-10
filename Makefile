@@ -6,7 +6,7 @@
 #    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/10 14:03:34 by fbarrada         ###   ########.fr        #
+#    Updated: 2026/07/10 14:59:11 by fbarrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,35 +21,52 @@ INCLUDES = -ILibft
 
 LIBFT_PATH = Libft/libft.a
 
-PRINTF_SRCS = ft_printf/ft_printf.c ft_printf/ft_printptr.c ft_printf/printf_helpers.c \
+OBJ_DIR = obj
 
-LISTAS_SRCS = listas/ft_lstnew.c listas/ft_lstadd_front.c listas/ft_lst_helpers.c listas/ft_lstlast.c \
-				listas/ft_lstadd_back.c
+PRINTF_SRCS = ft_printf/ft_printf.c \
+			  ft_printf/ft_printptr.c \
+			  ft_printf/printf_helpers.c
 
-SRCS = ft_stack.c operations.c main.c parsing.c validations.c sort_five.c chunk.c algorithms.c ranks.c disorder.c choose_strategy.c \
-				bench.c $(PRINTF_SRCS) $(LIBFT_SRCS) $(LISTAS_SRCS)
+LISTAS_SRCS = listas/ft_lstnew.c \
+			  listas/ft_lstadd_front.c \
+			  listas/ft_lst_helpers.c \
+			  listas/ft_lstlast.c \
+			  listas/ft_lstadd_back.c
 
-OBJ = $(SRCS:.c=.o)
+SRCS = ft_stack.c \
+	   operations.c \
+	   main.c \
+	   parsing.c \
+	   validations.c \
+	   sort_five.c \
+	   chunk.c \
+	   algorithms.c \
+	   ranks.c \
+	   $(PRINTF_SRCS) \
+	   $(LISTAS_SRCS)
+
+OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 all: $(LIBFT_PATH) $(NAME)
 
 $(LIBFT_PATH):
-	$(MAKE) -C Libft/
+	$(MAKE) -C Libft
 
 $(NAME): $(OBJ) $(LIBFT_PATH)
 	$(CC) $(FLAGS) $(OBJ) $(LIBFT_PATH) -o $(NAME)
-	
-%.o: %.c
+
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
 	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	$(MAKE) -C Libft/ clean
-	rm -f $(OBJ)
+	$(MAKE) -C Libft clean
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	$(MAKE) -C Libft/ fclean
+	$(MAKE) -C Libft fclean
 	rm -f $(NAME)
-	
+
 re: fclean all
-	
+
 .PHONY: all clean fclean re
