@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 15:00:41 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:14:00 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	validate_flags(char **str, t_input *input) // Verifica qual estrategia esta
 		else if (ft_strcmp(str[i], "--bench") == 0)
 			input->bench = 1;
 		else
-			input->strategy = ERROR; // Se nao for valida, da erro;
+			input->strategy = ERROR;
 		i++;
 	}
 	if (str[i] == NULL)
@@ -59,7 +59,7 @@ void	validate_flags(char **str, t_input *input) // Verifica qual estrategia esta
 	input->start = i;
 }
 
-int	is_not_num(char *str) // Verifica se o argumento passado nao e um numero;
+int	is_not_num(char *str)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/08 17:48:13 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:06:22 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_input
 	int				count;
 	int				start;
 	int				bench;
+	float			disorder;
 }					t_input;
 
 typedef struct s_count
@@ -91,11 +92,13 @@ void				rotation_a(t_list **stack_a, t_count *count, int position);
 void				go_min(t_list **stack_b, t_count *count);
 void				go_back_home(t_list **stack_a, t_list **stack_b,
 						t_count *count);
+void				sum_operations(t_count *count);
 
 void				print_stack(t_list *stack, char *name);
 void				print_ranks(t_list *stack);
-
+void				print_benchmark(t_input *input, t_count *count);
 void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
+
 void				sa(t_list **lista, t_count *count);
 void				sb(t_list **list_b, t_count *count);
 void				ss(t_list **list_a, t_list **list_b, t_count *count);
@@ -121,6 +124,12 @@ void				chunk_sort(t_list **stack_a, t_list **stack_b,
 
 void				validate_flags(char **str, t_input *input);
 void				free_stack(t_list **list);
+
+float				compute_disorder(t_list **stack_a);
+void				disorder_check(t_list **stack_a, t_list **stack_b,
+						t_input *input, t_count *count);
+void				strategy(t_list **stack_a, t_list **stack_b, t_input *input,
+						t_count *count);
 
 int					processing_args(char **str, t_input *input);
 int					check_errors(char **numbers);

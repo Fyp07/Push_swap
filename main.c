@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/09 15:36:00 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:05:10 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ void	free_split(char **argv) // Da free em tudo;
 	while (argv[i])
 		free(argv[i++]);
 	free(argv);
-}
-
-int	soma_movimentos(t_count *count) // TEMPORARIO
-{
-	int	total;
-
-	total = count->pa + count->pb + count->ra + count->rb + count->rr
-		+ count->rra + count->rrb + count->rrr + count->sa + count->sb;
-	ft_printf("Total de movimentos: %d\n", total);
-	return (total); 
 }
 
 int main(int argc, char **argv)
@@ -56,12 +46,9 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	// chunk_sort(&stack_a, &stack_b, &count, &input);
-	// soma_movimentos(&count);
-	// print_stack_a_b(stack_a, stack_b);
-	set_bucket_ranks(&stack_a, count.size_a);
-	print_ranks(stack_a);
-	print_stack_a_b(stack_a, stack_b);
 	// simple_insertion(&stack_a, &stack_b, &count);
+	// print_stack_a_b(stack_a, stack_b);
+	strategy(&stack_a, &stack_b, &input, &count);
 	
 	return (free_split(str), free_stack(&stack_a), 0);
 }
