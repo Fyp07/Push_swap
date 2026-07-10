@@ -6,7 +6,7 @@
 #    By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/10 10:14:28 by garodri2         ###   ########.fr        #
+#    Updated: 2026/07/10 11:50:15 by garodri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRCS = ft_stack.c \
 	   sort_five.c \
 	   chunk.c \
 	   algorithms.c \
+	   complex.c \
 	   ranks.c \
 	   $(PRINTF_SRCS) \
 	   $(LISTAS_SRCS)

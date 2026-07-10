@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:34:24 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/09 12:31:53 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:23:53 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,12 @@ void	print_stack_a_b(t_list *stack_a, t_list *stack_b)
 	{
 		if (stack_a)
 		{
-			printf("| %7d |\n", stack_a->value);
+			printf("| %7d ", stack_a->value);
 			stack_a = stack_a->next;
 		}
 		else
-			printf("|         |\n");
+			printf("|         ");
+
 		if (stack_b)
 		{
 			printf("| %7d |\n", stack_b->value);
