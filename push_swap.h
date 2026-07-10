@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/08 17:48:13 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:20:33 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_list				*create_stack(char **str, int start, t_input *input,
 						t_count *count);
 t_list				*find_min(t_list **list);
 t_list				*find_max(t_list **list);
-t_list				*set_bucket_ranks(t_list **stack, int total_size);
+t_list				*set_bucket_ranks(t_list **stack, int total_size, t_flags flag);
 
 int					ft_lstsize(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);
