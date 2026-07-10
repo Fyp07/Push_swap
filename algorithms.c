@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:53:20 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 16:07:52 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:15:07 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ void	simple_insertion(t_list **stack_a, t_list **stack_b, t_count *count, t_inpu
 	if (count->size_a <= 2)
 		return (sort_two(stack_a, count));
 	else if (count->size_a <= 5)
-		return (sort_five(stack_a, stack_a, count));
+		return (sort_five(stack_a, stack_b, count, input));
 	pb(stack_b, stack_a, count);
 	while(*stack_a)
 	{
