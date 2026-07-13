@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 16:07:43 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:33:57 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,11 @@ int main(int argc, char **argv)
 	str = argv_to_string(argc - 1, argv + 1); // Faz o seguinte: 1 2 "3 4 5" 6 7; -> 1 2 3 4 5 6 7;
 	if (processing_args(str, &input)) // Verifica se os argumentos sao validos
 		return (write(2, "Error\n", 6), free_split(str), 1); // Se houver um erro, retorna uma mensagem de erro, da free em tudo e retorna 1);
-	stack_a = create_stack(str, input.start, &input, &count); // Cria a stack;
+	stack_a = create_stack(str, &input, &count); // Cria a stack;
 	if (!stack_a)
 		return(write(2, "Error\n", 6), free_split(str), 1);
 	if (is_sorted(&stack_a))
-	{
-		// ft_printf("IS SORTED\n");
-		// print_stack(stack_a, "A");
 		return (0);
-	}
-	// chunk_sort(&stack_a, &stack_b, &count, &input);
-	// simple_insertion(&stack_a, &stack_b, &count);
-	// print_stack_a_b(stack_a, stack_b);
 	strategy(&stack_a, &stack_b, &input, &count);
-	// sort_two(&stack_a, &count);
-	// sort_five(&stack_a, &stack_b, &count);
-	print_stack(stack_a, "A");
-	
 	return (free_split(str), free_stack(&stack_a), 0);
 }

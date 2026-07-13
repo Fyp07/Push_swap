@@ -98,7 +98,7 @@ void	go_max(t_list **stack_b, t_count *count)
 	}
 }
 
-void	chunk_sort(t_list **stack_a, t_list **stack_b, t_count *count, t_input *input) // RANK COMECA DO ULTIMO
+void	chunk_sort(t_list **stack_a, t_list **stack_b, t_count *count) // RANK COMECA DO ULTIMO
 {
 	int	rank;
 	int	max_rank;
@@ -107,8 +107,10 @@ void	chunk_sort(t_list **stack_a, t_list **stack_b, t_count *count, t_input *inp
 
 	if (count->size_a == 0)
 		return ;
-	if (count->size_a <= 5)
-		return (sort_five(stack_a, stack_b, count, input));
+	if (count->size_a <= 2)
+		return (sort_two(stack_a, count));
+	else if (count->size_a <= 5)
+		return (sort_five(stack_a, stack_b, count));
 	total = 0;
 	chunk_size = 0;
 	*stack_a = set_bucket_ranks(stack_a, total, MEDIUM);

@@ -15,11 +15,11 @@ void	print_benchmark(t_input *input, t_count	*count)
 	i = (int)(input->disorder * 10);
 	ft_printf("[bench] disorder: %f%%\n", input->disorder);
 	if (i < 2 && input->strategy == ADAPTIVE)
-		ft_printf("[bench] strategy: Adaptive / O(n²)\n", input->disorder);
+		ft_printf("[bench] strategy: Adaptive / O(n²)\n");
 	else if (i < 5 && input->strategy == ADAPTIVE)
 		ft_printf("[bench] strategy: Adaptive / O(n√n)\n");
 	else if (input->strategy == SIMPLE)
-		ft_printf("[bench] strategy: Simple / O(n²)\n", input->disorder);
+		ft_printf("[bench] strategy: Simple / O(n²)\n");
 	else if (input->strategy == MEDIUM)
 		ft_printf("[bench] strategy: Medium / O(n√n)\n");
 	// else

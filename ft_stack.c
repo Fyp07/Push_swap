@@ -6,20 +6,20 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:34:24 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 13:53:06 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:19:56 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*create_stack(char **str, int start, t_input *input, t_count *count)
+t_list	*create_stack(char **str, t_input *input, t_count *count)
 {
 	t_list	*head;
 	t_list	*new;
 	int		i;
 
 	head = NULL;
-	i = start;
+	i = input->start;
 	while (str[i])
 	{
 		new = ft_lstnew(ft_atoi(str[i]));
