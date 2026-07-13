@@ -12,6 +12,8 @@ void	disorder_check(t_list **stack_a, t_list	**stack_b, t_input *input, t_count 
 		simple_insertion(stack_a, stack_b, count);
 	else if (i < 5)
 		chunk_insertion(stack_a, stack_b, (*stack_a)->rank, count);
+	else if (i >= 5)
+		complex_radix(stack_a, stack_b, count);
 }
 
 void	strategy(t_list	**stack_a, t_list	**stack_b, t_input	*input, t_count	*count)
@@ -31,6 +33,8 @@ void	strategy(t_list	**stack_a, t_list	**stack_b, t_input	*input, t_count	*count
 		simple_insertion(stack_a, stack_b, count);
 	else if (input->strategy == MEDIUM)
 		chunk_sort(stack_a, stack_b, count);
+	else if (input->strategy == COMPLEX)
+		complex_radix(stack_a, stack_b, count);
 	if (input->bench == 1)
 		print_benchmark(input, count);
 }
