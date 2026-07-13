@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithms.c                                       :+:      :+:    :+:   */
+/*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:53:20 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 16:23:17 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 15:41:30 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int search_cheapest(t_list *stack_a, t_list *stack_b)
 	return(best_postion);
 }
 
-void	rotation_b(t_list **stack_b, t_count *count, int position) // Rotaciona a Stack B
+void	rotation_b(t_list **stack_b, t_count *count, int position)
 {
 	int	i;
 	int size_stack_b;
@@ -123,7 +123,7 @@ void	rotation_b(t_list **stack_b, t_count *count, int position) // Rotaciona a S
 	}
 }
 
-void	rotation_a(t_list **stack_a, t_count *count, int position) // Rotaciona a Stack B
+void	rotation_a(t_list **stack_a, t_count *count, int position)
 {
 	int	i;
 	int size_stack_a;
@@ -169,7 +169,7 @@ void go_back_home(t_list **stack_a, t_list **stack_b, t_count *count)
 	}
 }
 
-void	simple_insertion(t_list **stack_a, t_list **stack_b, t_count *count) // Maestro da orquestra 
+void	simple_insertion(t_list **stack_a, t_list **stack_b, t_count *count)
 {
 	int position_to_insert;
 	int best_element_a;
@@ -190,15 +190,3 @@ void	simple_insertion(t_list **stack_a, t_list **stack_b, t_count *count) // Mae
 	go_min(stack_b, count);
 	go_back_home(stack_a, stack_b, count);
 }
-
-// sa: troca os 2 primeiros elementos da stack A.
-// sb: troca os 2 primeiros elementos da stack B.
-// ss: faz sa e sb ao mesmo tempo.
-// pa: move o primeiro elemento de B para o topo da A.
-// pb: move o primeiro elemento de A para o topo da B.
-// ra: roda a stack A para cima (o primeiro vai para o fim).
-// rb: roda a stack B para cima (o primeiro vai para o fim).
-// rr: faz ra e rb ao mesmo tempo.
-// rra: roda a stack A para baixo (o último vai para o topo).
-// rrb: roda a stack B para baixo (o último vai para o topo).
-// rrr: faz rra e rrb ao mesmo tempo.

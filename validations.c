@@ -6,14 +6,43 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:24:08 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 14:04:13 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 15:43:16 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "./Libft/libft.h"
 
-int	processing_args(char **str, t_input *input) // Apenas uma juncao do validate flags com o check errors (valida tudo);
+void	validate_flags(char **str, t_input *input)
+{
+	int	i;
+
+	i = 0;
+	input->count = 0;
+	input->bench = 0;
+	input->strategy = ADAPTIVE;
+	while (str[i] && (str[i][0] == '-' && str[i][1] == '-'))
+	{
+		if (ft_strcmp(str[i], "--simple") == 0)
+			input->strategy = SIMPLE;
+		else if (ft_strcmp(str[i], "--medium") == 0)
+			input->strategy = MEDIUM;
+		else if (ft_strcmp(str[i], "--complex") == 0)
+			input->strategy = COMPLEX;
+		else if (ft_strcmp(str[i], "--adaptive") == 0)
+			input->strategy = ADAPTIVE;
+		else if (ft_strcmp(str[i], "--bench") == 0)
+			input->bench = 1;
+		else
+			input->strategy = ERROR;
+		i++;
+	}
+	if (str[i] == NULL)
+		input->strategy = ERROR;
+	input->start = i;
+}
+
+int	processing_args(char **str, t_input *input)
 {
 	validate_flags(str, input);
 	if (input->strategy == ERROR)
@@ -23,7 +52,7 @@ int	processing_args(char **str, t_input *input) // Apenas uma juncao do validate
 	return (0);
 }
 
-char	**argv_to_string(int argc, char **argv) // Pega um array de arrays, passa para um array e depois passa para um array de arrays novamente;
+char	**argv_to_string(int argc, char **argv)
 {
 	int	i;
 	char	*str;
@@ -49,7 +78,7 @@ char	**argv_to_string(int argc, char **argv) // Pega um array de arrays, passa p
 	return (str_split);
 }
 
-char	*join(char *str, char **argv) // Junta os argumentos em uma string (usado em argv_to_string);
+char	*join(char *str, char **argv)
 {
 	int	i;
 	int	j;

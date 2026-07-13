@@ -16,6 +16,8 @@ void	disorder_check(t_list **stack_a, t_list	**stack_b, t_input *input, t_count 
 void	strategy(t_list	**stack_a, t_list	**stack_b, t_input	*input, t_count	*count)
 {	
 	input->disorder = compute_disorder(stack_a);
+	if (count->size_a == 0)
+		return ;
 	if (input->disorder == 0)
 	{
 		if (input->bench == 1)

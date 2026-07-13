@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five.c                                        :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 16:22:10 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 15:43:46 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ void	sort_three(t_list **a, t_count *count)
 	t_list	*position;
 
 	position = *a;
-	if (position == find_max(a) && position->next != find_min(a)) // 321
+	if (position == find_max(a) && position->next != find_min(a))
 	{
 		sa(a, count);
 		rra(a, count);
 	}
-	else if (position == find_max(a) && position->next == find_min(a)) // 312
+	else if (position == find_max(a) && position->next == find_min(a))
 		ra(a, count);
-	else if (position == find_min(a) && position->next == find_max(a)) // 132
+	else if (position == find_min(a) && position->next == find_max(a))
 	{
 		sa(a, count);
 		ra(a, count);
 	}
-	else if (position != find_max(a) && position->next == find_min(a)) // 213
+	else if (position != find_max(a) && position->next == find_min(a))
 		sa(a, count);
-	else if (position != find_min(a) && position->next == find_max(a)) // 231
+	else if (position != find_min(a) && position->next == find_max(a))
 		rra(a, count);
 }
 
@@ -98,7 +98,7 @@ t_list	*find_max(t_list **list)
 	t_list	*position;
 
 	max = *list;
-	position = (*list)->next; // 6 1 0 5 1 3 5
+	position = (*list)->next;
 	while (position)
 	{
 		if (position->value > max->value)

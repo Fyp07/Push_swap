@@ -6,13 +6,13 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 14:52:45 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 15:27:16 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char **argv) // Da free em tudo;
+void	free_split(char **argv)
 {
 	int	i;
 

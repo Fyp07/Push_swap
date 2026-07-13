@@ -1,33 +1,6 @@
 
 #include "push_swap.h"
 
-t_list	*set_bucket_ranks(t_list **stack, int total_size)
-{
-	t_list	*current;
-	t_list	*compare;
-	t_list	*head;
-	int		buckets;
-	int		rank_index;
-
-	head = *stack;
-	total_size = ft_lstsize(head);
-	buckets = ft_sqrt(total_size);
-	current = head;
-	while (current)
-	{
-		compare = (*stack)->next;
-		rank_index = 0;
-		while (compare)
-		{
-			if (current->value > compare->value)
-				rank_index++;
-			compare = compare->next;
-		}
-		current->rank = rank_index / buckets;
-		current = current->next;
-	}
-	return (head);
-}
 int chunk_search_cheapest(t_list *stack_a, t_list *stack_b, int rank)
 {
 	t_list *copy_stack_a;
@@ -57,7 +30,7 @@ int chunk_search_cheapest(t_list *stack_a, t_list *stack_b, int rank)
 	return(best_postion);
 }
 
-void	chunk_insertion(t_list **stack_a, t_list **stack_b, int	rank, t_count *count) // Maestro da orquestra 
+void	chunk_insertion(t_list **stack_a, t_list **stack_b, int	rank, t_count *count)
 {
 	int position_to_insert;
 	int best_element_a;
@@ -71,7 +44,6 @@ void	chunk_insertion(t_list **stack_a, t_list **stack_b, int	rank, t_count *coun
 		pb(stack_b, stack_a, count);
 	}
 }
-
 
 void	go_max(t_list **stack_b, t_count *count)
 {
@@ -94,15 +66,13 @@ void	go_max(t_list **stack_b, t_count *count)
 	}
 }
 
-void	chunk_sort(t_list **stack_a, t_list **stack_b, t_count *count) // RANK COMECA DO ULTIMO
+void	chunk_sort(t_list **stack_a, t_list **stack_b, t_count *count)
 {
 	int	rank;
 	int	max_rank;
 	int	total;
 	int	chunk_size;
 
-	if (count->size_a == 0)
-		return ;
 	if (count->size_a <= 2)
 		return (sort_two(stack_a, count));
 	else if (count->size_a <= 5)

@@ -1,6 +1,34 @@
 
 #include "push_swap.h"
 
+t_list	*set_bucket_ranks(t_list **stack, int total_size)
+{
+	t_list	*current;
+	t_list	*compare;
+	t_list	*head;
+	int		buckets;
+	int		rank_index;
+
+	head = *stack;
+	total_size = ft_lstsize(head);
+	buckets = ft_sqrt(total_size);
+	current = head;
+	while (current)
+	{
+		compare = (*stack)->next;
+		rank_index = 0;
+		while (compare)
+		{
+			if (current->value > compare->value)
+				rank_index++;
+			compare = compare->next;
+		}
+		current->rank = rank_index / buckets;
+		current = current->next;
+	}
+	return (head);
+}
+
 int	number_of_ranks(t_list *list)
 {
 	int	max;
@@ -39,34 +67,4 @@ int	find_rank_pos(t_list *list, int rank)
 		pos++;
 	}
 	return (0);
-}
-
-void	print_ranks(t_list *stack)
-{
-	t_list *current;
-	int bucket;
-	int max_bucket;
-
-	max_bucket = 0;
-	current = stack;
-	while (current)
-	{
-		if (current->rank > max_bucket)
-			max_bucket = current->rank;
-		current = current->next;
-	}
-	bucket = 0;
-	while (bucket <= max_bucket)
-	{
-		printf("Bucket [%d]: ", bucket);
-		current = stack;
-		while (current)
-		{
-			if (current->rank == bucket)
-				printf("%d ", current->value);
-			current = current->next;
-		}
-		printf("\n");
-		bucket++;
-	}
 }
