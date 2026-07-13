@@ -3,16 +3,13 @@
 
 void	disorder_check(t_list **stack_a, t_list	**stack_b, t_input *input, t_count *count)
 {
-	int	i;
-
-	i = (int)(input->disorder * 10);
-	if (i == 0)
+	if (input->disorder == 0)
 		return ;
-	if (i < 2)
+	if (input->disorder <= 0.2)
 		simple_insertion(stack_a, stack_b, count);
-	else if (i < 5)
-		chunk_insertion(stack_a, stack_b, (*stack_a)->rank, count);
-	else if (i >= 5)
+	else if (input->disorder < 0.5)
+		chunk_sort(stack_a, stack_b, count);
+	else if (input->disorder >= 0.5)
 		complex_radix(stack_a, stack_b, count);
 }
 

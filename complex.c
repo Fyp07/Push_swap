@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 11:24:19 by garodri2          #+#    #+#             */
-/*   Updated: 2026/07/13 12:38:41 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/13 15:00:11 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ void	complex_radix(t_list **stack_a, t_list **stack_b, t_count *count)
 	*stack_a = set_ranks(stack_a, count->size_a);
 	i = number_of_ranks(*stack_a);
 	
-
+	if (count->size_a <= 2)
+		return (sort_two(stack_a, count));
+	else if (count->size_a <= 5)
+		return (sort_five(stack_a, stack_b, count));
 	while(8 >= position)
 	{
 		i = number_of_ranks(*stack_a);

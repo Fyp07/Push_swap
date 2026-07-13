@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 14:06:16 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 14:53:58 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,7 @@ void	validate_flags(char **str, t_input *input) // Verifica qual estrategia esta
 		else if (ft_strcmp(str[i], "--bench") == 0)
 			input->bench = 1;
 		else
-		{
 			input->strategy = ERROR;
-			write(2, "Error\n", 6);
-			exit (1);
-			return ;
-		}
 		i++;
 	}
 	if (str[i] == NULL)

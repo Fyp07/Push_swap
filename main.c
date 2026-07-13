@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 13:58:37 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 14:52:45 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,17 @@ int main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
-	str = argv_to_string(argc - 1, argv + 1); // Faz o seguinte: 1 2 "3 4 5" 6 7; -> 1 2 3 4 5 6 7;
-	if (processing_args(str, &input)) // Verifica se os argumentos sao validos
-		return (write(2, "Error\n", 6), free_split(str), 1); // Se houver um erro, retorna uma mensagem de erro, da free em tudo e retorna 1);
-	stack_a = create_stack(str, &input, &count); // Cria a stack;
+	str = argv_to_string(argc - 1, argv + 1);
+	if (processing_args(str, &input))
+		return (write(2, "Error\n", 6), free_split(str), 1);
+	stack_a = create_stack(str, &input, &count);
 	if (!stack_a)
 		return(write(2, "Error\n", 6), free_split(str), 1);
-	if (is_sorted(&stack_a))
-		return (0);
 	strategy(&stack_a, &stack_b, &input, &count);
 	if (is_sorted(&stack_a))
-		ft_printf("ESTA ORDENADO!\n");
-	ft_printf("Strategy: %d\n", input.strategy);
+		ft_printf("ORGANIZADO!\n");
+	else
+		ft_printf("DESORGANIZADO!\n");
 	
 	return (free_split(str), free_stack(&stack_a), 0);
 }
