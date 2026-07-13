@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 13:43:36 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 15:53:14 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,8 @@ void				go_back_home(t_list **stack_a, t_list **stack_b,
 						t_count *count);
 void				sum_operations(t_count *count);
 
-void				print_stack(t_list *stack, char *name);
-void				print_ranks(t_list *stack);
 void				print_benchmark(t_input *input, t_count *count);
-void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
 
-void				ft_printchar(char c);
-void				ft_printstr(char *str);
 void				ft_printnbr(int n);
 void				ft_print_double(double n);
 void				ft_printf(char *str, ...);
