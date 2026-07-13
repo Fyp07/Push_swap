@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-t_list	*set_bucket_ranks(t_list **stack, int total_size, t_flags flag) // Flag parameter created to reuse the function in both algorithms.
+t_list	*set_bucket_ranks(t_list **stack, int total_size)
 {
 	t_list	*current;
 	t_list	*compare;
@@ -23,15 +23,11 @@ t_list	*set_bucket_ranks(t_list **stack, int total_size, t_flags flag) // Flag p
 				rank_index++;
 			compare = compare->next;
 		}
-		if(flag == MEDIUM)
-			current->rank = rank_index / buckets;
-		else if(flag == COMPLEX)
-			current->rank = rank_index;
+		current->rank = rank_index / buckets;
 		current = current->next;
 	}
 	return (head);
 }
-
 int chunk_search_cheapest(t_list *stack_a, t_list *stack_b, int rank)
 {
 	t_list *copy_stack_a;
@@ -113,7 +109,7 @@ void	chunk_sort(t_list **stack_a, t_list **stack_b, t_count *count) // RANK COME
 		return (sort_five(stack_a, stack_b, count));
 	total = 0;
 	chunk_size = 0;
-	*stack_a = set_bucket_ranks(stack_a, total, MEDIUM);
+	*stack_a = set_bucket_ranks(stack_a, total);
 	rank = 0;
 	max_rank = number_of_ranks(*stack_a);
 	while (rank <= max_rank)

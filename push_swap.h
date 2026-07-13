@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 16:23:24 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 13:43:36 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
 t_list				*create_stack(char **str, t_input *input, t_count *count);
 t_list				*find_min(t_list **list);
 t_list				*find_max(t_list **list);
-t_list				*set_bucket_ranks(t_list **stack, int total_size,
-						t_flags flag);
+t_list				*set_bucket_ranks(t_list **stack, int total_size);
 
 int					ft_lstsize(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);
@@ -121,6 +120,7 @@ void				sort_three(t_list **a, t_count *count);
 void				sort_five(t_list **a, t_list **b, t_count *count);
 void				simple_insertion(t_list **stack_a, t_list **stack_b,
 						t_count *count);
+void				complex_radix(t_list **stack_a, t_list **stack_b, t_count *count);
 void				chunk_insertion(t_list **stack_a, t_list **stack_b,
 						int rank, t_count *count);
 void				chunk_sort(t_list **stack_a, t_list **stack_b,

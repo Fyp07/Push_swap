@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:34:24 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 16:19:56 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 13:41:31 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,12 @@ void	print_stack_a_b(t_list *stack_a, t_list *stack_b)
 	{
 		if (stack_a)
 		{
-			printf("| %7d |\n", stack_a->value);
+			printf("| %7d ", stack_a->value);
 			stack_a = stack_a->next;
 		}
 		else
-			printf("|         |\n");
+			printf("|         ");
+
 		if (stack_b)
 		{
 			printf("| %7d |\n", stack_b->value);

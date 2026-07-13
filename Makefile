@@ -6,7 +6,7 @@
 #    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/10 15:10:30 by fbarrada         ###   ########.fr        #
+#    Updated: 2026/07/13 13:41:46 by fbarrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS = ft_stack.c \
 	   sort_five.c \
 	   chunk.c \
 	   algorithms.c \
+	   complex.c \
 	   ranks.c \
 	   ft_printf.c \
 	   bench.c \
