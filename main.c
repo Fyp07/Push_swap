@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 15:58:58 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 16:38:54 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	free_split(char **argv)
 	free(argv);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_input input;
+	t_input			input;
 	static t_count	count;
-	t_list *stack_a;
-	t_list *stack_b;
-	char **str;
-	
+	t_list			*stack_a;
+	t_list			*stack_b;
+	char			**str;
+
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
@@ -38,8 +38,7 @@ int main(int argc, char **argv)
 		return (write(2, "Error\n", 6), free_split(str), 1);
 	stack_a = create_stack(str, &input, &count);
 	if (!stack_a)
-		return(write(2, "Error\n", 6), free_split(str), 1);
+		return (write(2, "Error\n", 6), free_split(str), 1);
 	strategy(&stack_a, &stack_b, &input, &count);
-	
 	return (free_split(str), free_stack(&stack_a), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:34:24 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 15:27:02 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 16:35:28 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ t_list	*create_stack(char **str, t_input *input, t_count *count)
 	count->size_a = input->count;
 	return (head);
 }
-

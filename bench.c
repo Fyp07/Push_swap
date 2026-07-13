@@ -7,7 +7,7 @@ void	sum_operations(t_count *count)
 		+ count->rra + count->rrb + count->rrr + count->sa + count->sb;
 }
 
-void	print_benchmark(t_input *input, t_count	*count)
+void	print_bench(t_input *input, t_count *count)
 {
 	int	i;
 
@@ -27,6 +27,8 @@ void	print_benchmark(t_input *input, t_count	*count)
 	else
 		ft_printf("[bench] strategy: Complex / O(nlogn)\n");
 	ft_printf("[bench] total_ops: %d\n", count->total);
-	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n", count->sa, count->sb, count->ss, count->pa, count->pb);
-	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n", count->ra, count->rb, count->rr, count->rra, count->rrb, count->rrr);
+	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n", count->sa,
+		count->sb, count->ss, count->pa, count->pb);
+	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+		count->ra, count->rb, count->rr, count->rra, count->rrb, count->rrr);
 }

@@ -6,12 +6,12 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 15:24:08 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 15:43:16 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 17:31:57 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "./Libft/libft.h"
+#include "push_swap.h"
 
 void	validate_flags(char **str, t_input *input)
 {
@@ -54,16 +54,16 @@ int	processing_args(char **str, t_input *input)
 
 char	**argv_to_string(int argc, char **argv)
 {
-	int	i;
+	int		i;
 	char	*str;
 	char	**str_split;
-	int len;
+	int		len;
 
 	i = 0;
 	len = 0;
 	while (argv[i])
 	{
-		len += ft_strlen(argv[i]); 
+		len += ft_strlen(argv[i]);
 		if (argv[i][0] == '\0' || (argv[i][0] == ' ' && argv[i][1] == '\0'))
 			return (write(2, "Error\n", 6), exit(1), NULL);
 		i++;
@@ -72,17 +72,17 @@ char	**argv_to_string(int argc, char **argv)
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (exit(1), NULL);
-	str = join(str, argv);
+	str = join_str(str, argv);
 	str_split = ft_split(str, ' ');
 	free(str);
 	return (str_split);
 }
 
-char	*join(char *str, char **argv)
+char	*join_str(char *str, char **argv)
 {
 	int	i;
 	int	j;
-	int k;
+	int	k;
 
 	j = 0;
 	k = 0;
@@ -99,12 +99,11 @@ char	*join(char *str, char **argv)
 		k++;
 		j++;
 	}
-	
-	str[k] = '\0'; 
+	str[k] = '\0';
 	return (str);
 }
 
-int	ft_strcmp(char	*s1, char	*s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
@@ -115,5 +114,5 @@ int	ft_strcmp(char	*s1, char	*s2)
 			return (s1[i] - s2[i]);
 		i++;
 	}
-	return(s1[i] - s2[i]);
+	return (s1[i] - s2[i]);
 }

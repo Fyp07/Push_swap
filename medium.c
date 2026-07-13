@@ -1,34 +1,28 @@
 
 #include "push_swap.h"
 
-int	medium_search_cheapest(t_list *stack_a, t_list *stack_b, int rank)
+int	medium_find_cheapest(t_list *stack_a, t_list *stack_b, int rank)
 {
-	t_list	*copy_stack_a;
-	int		best_postion;
+	t_list	*node;
+	int		best_pos;
 	int		min_cost;
-	int		position;
+	int		pos;
 	int		cost;
 
-	copy_stack_a = stack_a;
+	node = stack_a;
 	min_cost = INT_MAX;
-	position = 0;
-	best_postion = 0;
-	while (copy_stack_a)
+	best_pos = 0;
+	pos = 0;
+	while (node)
 	{
-		if (copy_stack_a->rank == rank)
-		{
-			cost = cost_to_insert(stack_b, copy_stack_a->value, position,
-					ft_lstsize(stack_a));
-			if (cost < min_cost)
-			{
-				min_cost = cost;
-				best_postion = position;
-			}
-		}
-		copy_stack_a = copy_stack_a->next;
-		position++;
+		if (node->rank == rank
+			&& (cost = cost_to_insert(stack_b, node->value,
+					pos, ft_lstsize(stack_a))) < min_cost)
+			min_cost = cost, best_pos = pos;
+		node = node->next;
+		pos++;
 	}
-	return (best_postion);
+	return (best_pos);
 }
 
 void	medium_insertion(t_list **stack_a, t_list **stack_b, int rank,
@@ -39,7 +33,7 @@ void	medium_insertion(t_list **stack_a, t_list **stack_b, int rank,
 
 	while (has_rank(*stack_a, rank))
 	{
-		best_element_a = medium_search_cheapest(*stack_a, *stack_b, rank);
+		best_element_a = medium_find_cheapest(*stack_a, *stack_b, rank);
 		rotation_a(stack_a, count, best_element_a);
 		position_to_insert = find_nearest(stack_b, (*stack_a)->value);
 		rotation_b(stack_b, count, position_to_insert);

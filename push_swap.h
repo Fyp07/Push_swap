@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 16:02:30 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 17:31:57 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int					nearest_position(t_list *stack_b, int value);
 int					find_nearest(t_list **stack_b, int element_stack_a);
 int					cost_to_insert(t_list *stack_b, int element_stack_a,
 						int position_element_a, int size_stack_a);
-int					search_cheapest(t_list *stack_a, t_list *stack_b);
+int					find_cheapest(t_list *stack_a, t_list *stack_b);
 void				rotation_b(t_list **stack_b, t_count *count, int position);
 void				rotation_a(t_list **stack_a, t_count *count, int position);
 void				go_min(t_list **stack_b, t_count *count);
@@ -92,7 +92,7 @@ void				go_back_home(t_list **stack_a, t_list **stack_b,
 						t_count *count);
 void				sum_operations(t_count *count);
 
-void				print_benchmark(t_input *input, t_count *count);
+void				print_bench(t_input *input, t_count *count);
 
 void				ft_printnbr(int n);
 void				ft_print_double(double n);
@@ -113,9 +113,9 @@ void				rrr(t_list **list_a, t_list **list_b, t_count *count);
 void				sort_two(t_list **list, t_count *count);
 void				sort_three(t_list **a, t_count *count);
 void				sort_five(t_list **a, t_list **b, t_count *count);
-void				simple_insertion(t_list **stack_a, t_list **stack_b,
+void				simple_sort(t_list **stack_a, t_list **stack_b,
 						t_count *count);
-void				complex_radix(t_list **stack_a, t_list **stack_b,
+void				complex_sort(t_list **stack_a, t_list **stack_b,
 						t_count *count);
 void				medium_insertion(t_list **stack_a, t_list **stack_b,
 						int rank, t_count *count);
@@ -147,7 +147,7 @@ int					find_rank_pos(t_list *list, int rank);
 
 long				ft_atol(const char *nptr);
 
-char				*join(char *str, char **argv);
+char				*join_str(char *str, char **argv);
 char				**argv_to_string(int argc, char **argv);
 
 #endif
