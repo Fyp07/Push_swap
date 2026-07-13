@@ -6,7 +6,7 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 11:24:19 by garodri2          #+#    #+#             */
-/*   Updated: 2026/07/10 16:44:23 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/13 12:38:41 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,24 @@ t_list	*set_ranks(t_list **stack, int total_size)
 
 void	complex_radix(t_list **stack_a, t_list **stack_b, t_count *count)
 {	
-	int	number_ranks;
+	int i;
 	int position = 0;
 	*stack_a = set_ranks(stack_a, count->size_a);
-	number_ranks = number_of_ranks(*stack_a);
+	i = number_of_ranks(*stack_a);
 	
-	int i = number_ranks;
-	while(number_ranks > position)
+
+	while(8 >= position)
 	{
-		
+		i = number_of_ranks(*stack_a);
 		while(i >= 0)
 		{
 			if(get_bit((*stack_a)->rank, position) == 0)
-			{
-				printf("\n rank: %d", (*stack_a)->rank);
-				printf(" bit: %d", get_bit((*stack_a)->rank, position));
-				//print_stack_a_b(*stack_a, *stack_b);
-			}
+				pb(stack_b, stack_a, count);
 			else
-			{
-				printf("\n rank: %d", (*stack_a)->rank);
-				printf(" bit: %d", get_bit((*stack_a)->rank, position));
-				
-			}
-			*stack_a = (*stack_a)->next;
+				ra(stack_a, count);				
 			i --;
 		}
-		// go_back_home(stack_a, stack_b, count);
-		// print_stack_a_b(*stack_a, *stack_b);
+		go_back_home(stack_a, stack_b, count);
 		position++;
 	}
-	printf("\n\n");
-	print_stack_a_b(*stack_a, *stack_b);
 }
