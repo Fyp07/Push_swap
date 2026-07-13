@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 15:27:16 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 15:58:58 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ int main(int argc, char **argv)
 	if (!stack_a)
 		return(write(2, "Error\n", 6), free_split(str), 1);
 	strategy(&stack_a, &stack_b, &input, &count);
-	if (is_sorted(&stack_a))
-		ft_printf("ORGANIZADO!\n");
-	else
-		ft_printf("DESORGANIZADO!\n");
 	
 	return (free_split(str), free_stack(&stack_a), 0);
 }

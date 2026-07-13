@@ -1,46 +1,48 @@
 
 #include "push_swap.h"
 
-int chunk_search_cheapest(t_list *stack_a, t_list *stack_b, int rank)
+int	medium_search_cheapest(t_list *stack_a, t_list *stack_b, int rank)
 {
-	t_list *copy_stack_a;
-	int best_postion;
-	int	min_cost;
-	int position;
-	int cost;
+	t_list	*copy_stack_a;
+	int		best_postion;
+	int		min_cost;
+	int		position;
+	int		cost;
 
 	copy_stack_a = stack_a;
 	min_cost = INT_MAX;
 	position = 0;
 	best_postion = 0;
-	while(copy_stack_a)
+	while (copy_stack_a)
 	{
 		if (copy_stack_a->rank == rank)
 		{
-			cost = cost_to_insert(stack_b, copy_stack_a->value, position, ft_lstsize(stack_a));
-			if(cost < min_cost)
+			cost = cost_to_insert(stack_b, copy_stack_a->value, position,
+					ft_lstsize(stack_a));
+			if (cost < min_cost)
 			{
 				min_cost = cost;
 				best_postion = position;
 			}
 		}
 		copy_stack_a = copy_stack_a->next;
-		position ++;
+		position++;
 	}
-	return(best_postion);
+	return (best_postion);
 }
 
-void	chunk_insertion(t_list **stack_a, t_list **stack_b, int	rank, t_count *count)
+void	medium_insertion(t_list **stack_a, t_list **stack_b, int rank,
+		t_count *count)
 {
-	int position_to_insert;
-	int best_element_a;
+	int	position_to_insert;
+	int	best_element_a;
 
-	while(has_rank(*stack_a, rank))
+	while (has_rank(*stack_a, rank))
 	{
-		best_element_a = chunk_search_cheapest(*stack_a, *stack_b, rank);
-		rotation_a(stack_a, count, best_element_a);	
+		best_element_a = medium_search_cheapest(*stack_a, *stack_b, rank);
+		rotation_a(stack_a, count, best_element_a);
 		position_to_insert = find_nearest(stack_b, (*stack_a)->value);
-		rotation_b(stack_b, count, position_to_insert);	
+		rotation_b(stack_b, count, position_to_insert);
 		pb(stack_b, stack_a, count);
 	}
 }
@@ -66,7 +68,7 @@ void	go_max(t_list **stack_b, t_count *count)
 	}
 }
 
-void	chunk_sort(t_list **stack_a, t_list **stack_b, t_count *count)
+void	medium_sort(t_list **stack_a, t_list **stack_b, t_count *count)
 {
 	int	rank;
 	int	max_rank;
@@ -84,7 +86,7 @@ void	chunk_sort(t_list **stack_a, t_list **stack_b, t_count *count)
 	max_rank = number_of_ranks(*stack_a);
 	while (rank <= max_rank)
 	{
-		chunk_insertion(stack_a, stack_b, rank, count);
+		medium_insertion(stack_a, stack_b, rank, count);
 		rank++;
 	}
 	while ((*stack_b))

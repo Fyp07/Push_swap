@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 15:43:46 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 16:02:25 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,18 +162,3 @@ int	is_sorted(t_list **list)
 	return (1);
 }
 
-int	is_stack_b_sorted(t_list **list)
-{
-	t_list	*position;
-
-	if (!list || !(*list)->next)
-		return (1);
-	position = *list;
-	while (position->next)
-	{
-		if (position->value < position->next->value)
-			return (0);
-		position = position->next;
-	}
-	return (1);
-}

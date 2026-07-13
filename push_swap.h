@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 15:53:14 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 16:02:30 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,11 @@ void				sort_three(t_list **a, t_count *count);
 void				sort_five(t_list **a, t_list **b, t_count *count);
 void				simple_insertion(t_list **stack_a, t_list **stack_b,
 						t_count *count);
-void				complex_radix(t_list **stack_a, t_list **stack_b, t_count *count);
-void				chunk_insertion(t_list **stack_a, t_list **stack_b,
+void				complex_radix(t_list **stack_a, t_list **stack_b,
+						t_count *count);
+void				medium_insertion(t_list **stack_a, t_list **stack_b,
 						int rank, t_count *count);
-void				chunk_sort(t_list **stack_a, t_list **stack_b,
+void				medium_sort(t_list **stack_a, t_list **stack_b,
 						t_count *count);
 
 void				validate_flags(char **str, t_input *input);
@@ -136,7 +137,6 @@ int					is_not_num(char *str);
 int					has_repeated(char **numbers);
 int					in_range(char *numbers);
 int					is_sorted(t_list **array);
-int					is_stack_b_sorted(t_list **list);
 int					ft_strcmp(char *s1, char *s2);
 int					min_position(t_list **list);
 int					max_position(t_list **list);
