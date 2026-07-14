@@ -6,7 +6,7 @@
 /*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 17:06:54 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 10:06:22 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/13 13:46:46 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,6 @@ int main(int argc, char **argv)
 		// print_stack(stack_a, "A");
 		return (0);
 	}
-	//chunk_sort(&stack_a, &stack_b, &count, &input);
-	// soma_movimentos(&count);
-	//print_stack_a_b(stack_a, stack_b);
-	//set_bucket_ranks(&stack_a, count.size_a, COMPLEX);
-	//print_stack_a_b(stack_a, stack_b);
-	// simple_insertion(&stack_a, &stack_b, &count);
 	complex_radix(&stack_a, &stack_b,&count);
 	
 	
