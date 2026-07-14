@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/27 15:45:39 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/05/13 18:14:08 by fbarrada         ###   ########.fr       */
+/*   Created: 2026/05/18 11:53:07 by fbarrada          #+#    #+#             */
+/*   Updated: 2026/05/18 11:56:36 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	size_t	i;
-	size_t	j;
-	size_t	totalsize;
-	char	*newstr;
+# include <stdarg.h>
+# include <stdint.h>
+# include <unistd.h>
 
-	i = 0;
-	j = 0;
-	totalsize = ft_strlen(s1) + ft_strlen(s2);
-	newstr = malloc(totalsize + 1);
-	if (!newstr)
-		return (NULL);
-	while (s1[i])
-	{
-		newstr[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-		newstr[i++] = s2[j++];
-	newstr[i] = '\0';
-	return (newstr);
-}
+int	ft_printchar(char c);
+int	ft_printstr(char *str);
+int	ft_printnbr(long n);
+int	ft_printunsnbr(unsigned int n);
+int	ft_printhex(char str, unsigned int n);
+int	ft_printptr(void *ptr);
+int	ft_printf(const char *str, ...);
+
+#endif

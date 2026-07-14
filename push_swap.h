@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/10 16:20:45 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/13 17:31:57 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "./Libft/libft.h"
-# include "./ft_printf/ft_printf.h"
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -34,6 +33,7 @@ typedef struct s_input
 	int				count;
 	int				start;
 	int				bench;
+	float			disorder;
 }					t_input;
 
 typedef struct s_count
@@ -65,8 +65,7 @@ typedef struct s_list
 t_list				*ft_lstnew(int content);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
-t_list				*create_stack(char **str, int start, t_input *input,
-						t_count *count);
+t_list				*create_stack(char **str, t_input *input, t_count *count);
 t_list				*find_min(t_list **list);
 t_list				*find_max(t_list **list);
 t_list				*set_bucket_ranks(t_list **stack, int total_size);
@@ -85,17 +84,20 @@ int					nearest_position(t_list *stack_b, int value);
 int					find_nearest(t_list **stack_b, int element_stack_a);
 int					cost_to_insert(t_list *stack_b, int element_stack_a,
 						int position_element_a, int size_stack_a);
-int					search_cheapest(t_list *stack_a, t_list *stack_b);
+int					find_cheapest(t_list *stack_a, t_list *stack_b);
 void				rotation_b(t_list **stack_b, t_count *count, int position);
 void				rotation_a(t_list **stack_a, t_count *count, int position);
 void				go_min(t_list **stack_b, t_count *count);
 void				go_back_home(t_list **stack_a, t_list **stack_b,
 						t_count *count);
+void				sum_operations(t_count *count);
 
-void				print_stack(t_list *stack, char *name);
-void				print_ranks(t_list *stack);
+void				print_bench(t_input *input, t_count *count);
 
-void				print_stack_a_b(t_list *stack_a, t_list *stack_b);
+void				ft_printnbr(int n);
+void				ft_print_double(double n);
+void				ft_printf(char *str, ...);
+
 void				sa(t_list **lista, t_count *count);
 void				sb(t_list **list_b, t_count *count);
 void				ss(t_list **list_a, t_list **list_b, t_count *count);
@@ -110,18 +112,24 @@ void				rrr(t_list **list_a, t_list **list_b, t_count *count);
 
 void				sort_two(t_list **list, t_count *count);
 void				sort_three(t_list **a, t_count *count);
-void				sort_five(t_list **a, t_list **b, t_count *count,
-						t_input *input);
-void				simple_insertion(t_list **stack_a, t_list **stack_b,
+void				sort_five(t_list **a, t_list **b, t_count *count);
+void				simple_sort(t_list **stack_a, t_list **stack_b,
 						t_count *count);
-void				complex_radix(t_list **stack_a, t_list **stack_b, t_count *count);
-void				chunk_insertion(t_list **stack_a, t_list **stack_b,
+void				complex_sort(t_list **stack_a, t_list **stack_b,
+						t_count *count);
+void				medium_insertion(t_list **stack_a, t_list **stack_b,
 						int rank, t_count *count);
-void				chunk_sort(t_list **stack_a, t_list **stack_b,
-						t_count *count, t_input *input);
+void				medium_sort(t_list **stack_a, t_list **stack_b,
+						t_count *count);
 
 void				validate_flags(char **str, t_input *input);
 void				free_stack(t_list **list);
+
+float				compute_disorder(t_list **stack_a);
+void				disorder_check(t_list **stack_a, t_list **stack_b,
+						t_input *input, t_count *count);
+void				strategy(t_list **stack_a, t_list **stack_b, t_input *input,
+						t_count *count);
 
 int					processing_args(char **str, t_input *input);
 int					check_errors(char **numbers);
@@ -129,7 +137,6 @@ int					is_not_num(char *str);
 int					has_repeated(char **numbers);
 int					in_range(char *numbers);
 int					is_sorted(t_list **array);
-int					is_stack_b_sorted(t_list **list);
 int					ft_strcmp(char *s1, char *s2);
 int					min_position(t_list **list);
 int					max_position(t_list **list);
@@ -140,7 +147,7 @@ int					find_rank_pos(t_list *list, int rank);
 
 long				ft_atol(const char *nptr);
 
-char				*join(char *str, char **argv);
+char				*join_str(char *str, char **argv);
 char				**argv_to_string(int argc, char **argv);
 
 #endif

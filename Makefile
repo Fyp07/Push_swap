@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+         #
+#    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/10 11:50:15 by garodri2         ###   ########.fr        #
+#    Updated: 2026/07/13 15:20:12 by fbarrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,6 @@ LIBFT_PATH = Libft/libft.a
 
 OBJ_DIR = obj
 
-PRINTF_SRCS = ft_printf/ft_printf.c \
-			  ft_printf/ft_printptr.c \
-			  ft_printf/printf_helpers.c
-
 LISTAS_SRCS = listas/ft_lstnew.c \
 			  listas/ft_lstadd_front.c \
 			  listas/ft_lst_helpers.c \
@@ -38,12 +34,15 @@ SRCS = ft_stack.c \
 	   main.c \
 	   parsing.c \
 	   validations.c \
-	   sort_five.c \
-	   chunk.c \
-	   algorithms.c \
+	   sort_utils.c \
+	   medium.c \
+	   simple.c \
 	   complex.c \
 	   ranks.c \
-	   $(PRINTF_SRCS) \
+	   ft_printf.c \
+	   bench.c \
+	   strategy.c \
+	   disorder.c \
 	   $(LISTAS_SRCS)
 
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))

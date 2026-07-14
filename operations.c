@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/08 15:22:43 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:58:38 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,7 +226,7 @@ void	rrr(t_list **list_a, t_list **list_b, t_count *count)
 	rra(list_a, count);
 	count->rra--;
 	rrb(list_b, count);
-	count->rra--;
+	count->rrb--;
 	count->rrr++;
 	write(1, "rrr\n", 4);
 }

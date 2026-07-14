@@ -6,13 +6,13 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/03 15:00:41 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/13 15:38:44 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_errors(char **numbers) // Uma juncao de todas as verificacoes abaixo em uma so;
+int	check_errors(char **numbers)
 {
 	int	i;
 	
@@ -30,36 +30,7 @@ int	check_errors(char **numbers) // Uma juncao de todas as verificacoes abaixo e
 	return (0);
 }
 
-void	validate_flags(char **str, t_input *input) // Verifica qual estrategia esta sendo usada;
-{
-	int	i;
-
-	i = 0;
-	input->count = 0;
-	input->bench = 0;
-	input->strategy = ADAPTIVE; // Comeca como ADAPTIVE por padrao;
-	while (str[i] && (str[i][0] == '-' && str[i][1] == '-')) // Loop que compara as strings para alterar a estrategia;
-	{
-		if (ft_strcmp(str[i], "--simple") == 0)
-			input->strategy = SIMPLE;
-		else if (ft_strcmp(str[i], "--medium") == 0)
-			input->strategy = MEDIUM;
-		else if (ft_strcmp(str[i], "--complex") == 0)
-			input->strategy = COMPLEX;
-		else if (ft_strcmp(str[i], "--adaptive") == 0)
-			input->strategy = ADAPTIVE;
-		else if (ft_strcmp(str[i], "--bench") == 0)
-			input->bench = 1;
-		else
-			input->strategy = ERROR; // Se nao for valida, da erro;
-		i++;
-	}
-	if (str[i] == NULL)
-		input->strategy = ERROR;
-	input->start = i;
-}
-
-int	is_not_num(char *str) // Verifica se o argumento passado nao e um numero;
+int	is_not_num(char *str)
 {
 	int	i;
 
@@ -79,7 +50,7 @@ int	is_not_num(char *str) // Verifica se o argumento passado nao e um numero;
 	return (0);
 }
 
-int	has_repeated(char **numbers) // Verifica se ha numeros repetidos;
+int	has_repeated(char **numbers)
 {
 	int	i;
 	int	j;
@@ -99,7 +70,7 @@ int	has_repeated(char **numbers) // Verifica se ha numeros repetidos;
 	return (0);
 }
 
-long	ft_atol(const char *nptr) // Atoi com long;
+long	ft_atol(const char *nptr)
 {
 	long	sign;
 	long	res;
@@ -125,7 +96,7 @@ long	ft_atol(const char *nptr) // Atoi com long;
 	return (res * sign);
 }
 
-int	in_range(char *numbers) // Verifica se esta entre o int min e int max;
+int	in_range(char *numbers)
 {
 	long value;
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
+#    By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/04/28 13:50:18 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/13 15:51:58 by fbarrada         ###   ########.fr        #
+#    Created: 2026/05/18 10:45:34 by fbarrada          #+#    #+#              #
+#    Updated: 2026/05/18 11:55:24 by fbarrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,27 +14,24 @@ CC = cc
 
 CCFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_atoi.c ft_split.c ft_strlen.c 
+SRC =   ft_printf.c ft_printptr.c helpers.c \
 
-HEADER = libft.h
+HEADER = ft_printf.h
 
-NAME = libft.a
+NAME = libftprintf.a
 
-OBJ_DIR = obj
-
-OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
+COMP = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(COMP)
+	ar rcs $(NAME) $(COMP)
 
-$(OBJ_DIR)/%.o: %.c $(HEADER)
-	@mkdir -p $(dir $@)
+%.o: %.c $(HEADER)
 	$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -f $(COMP)
 
 fclean: clean
 	rm -f $(NAME)
