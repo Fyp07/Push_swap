@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
+#    By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/13 15:20:12 by fbarrada         ###   ########.fr        #
+#    Updated: 2026/07/15 12:07:31 by garodri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,18 +30,22 @@ LISTAS_SRCS = listas/ft_lstnew.c \
 			  listas/ft_lstadd_back.c
 
 SRCS = ft_stack.c \
-	   operations.c \
+	   push_swap_operations.c \
+	   rotation_operations.c \
 	   main.c \
 	   parsing.c \
 	   validations.c \
 	   sort_utils.c \
 	   medium.c \
 	   simple.c \
+	   simple_utils.c \
 	   complex.c \
 	   ranks.c \
 	   ft_printf.c \
 	   bench.c \
 	   strategy.c \
+	   position_utils.c \
+	   algorithms_utils.c \
 	   disorder.c \
 	   $(LISTAS_SRCS)
 

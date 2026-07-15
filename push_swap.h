@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 17:31:57 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/15 11:24:04 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,7 @@ void				ft_lstiter(t_list *lst, void (*f)(int));
 int					ft_lstmin(t_list *lst);
 int					ft_lstmax(t_list *lst);
 
-int					index_max(t_list *stack);
 int					nearest_position(t_list *stack_b, int value);
-int					find_nearest(t_list **stack_b, int element_stack_a);
 int					cost_to_insert(t_list *stack_b, int element_stack_a,
 						int position_element_a, int size_stack_a);
 int					find_cheapest(t_list *stack_a, t_list *stack_b);

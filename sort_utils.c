@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 16:02:25 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/15 11:29:09 by garodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	sort_two(t_list **list, t_count *count)
 	write(1, "sa\n", 3);
 	count->sa++;
 }
-
 void	sort_three(t_list **a, t_count *count)
 {
 	t_list	*position;
@@ -47,7 +46,6 @@ void	sort_three(t_list **a, t_count *count)
 	else if (position != find_min(a) && position->next == find_max(a))
 		rra(a, count);
 }
-
 void	sort_five(t_list **a, t_list **b, t_count *count)
 {
 	int	min_pos;
@@ -75,77 +73,6 @@ void	sort_five(t_list **a, t_list **b, t_count *count)
 	while ((*b))
 		pa(a, b, count);
 }
-
-t_list	*find_min(t_list **list)
-{
-	t_list	*min;
-	t_list	*position;
-
-	min = *list;
-	position = (*list)->next;
-	while (position)
-	{
-		if (position->value < min->value)
-			min = position;
-		position = position->next;
-	}
-	return (min);
-}
-
-t_list	*find_max(t_list **list)
-{
-	t_list	*max;
-	t_list	*position;
-
-	max = *list;
-	position = (*list)->next;
-	while (position)
-	{
-		if (position->value > max->value)
-			max = position;
-		position = position->next;
-	}
-	return (max);
-}
-
-int	min_position(t_list **list)
-{
-	t_list	*min;
-	t_list	*walk;
-	int	pos;
-
-	min = find_min(list);
-	walk = *list;
-	pos = 0;
-	while (walk)
-	{
-		if (walk->value == min->value)
-			return(pos);
-		pos++;
-		walk = walk->next;
-	}
-	return (0);
-}
-
-int	max_position(t_list **list)
-{
-	t_list	*max;
-	t_list	*walk;
-	int	pos;
-
-	max = find_max(list);
-	walk = *list;
-	pos = 0;
-	while (walk)
-	{
-		if (walk->value == max->value)
-			return(pos);
-		pos++;
-		walk = walk->next;
-	}
-	return (0);
-}
-
 int	is_sorted(t_list **list)
 {
 	t_list	*position;

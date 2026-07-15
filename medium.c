@@ -35,7 +35,7 @@ void	medium_insertion(t_list **stack_a, t_list **stack_b, int rank,
 	{
 		best_element_a = medium_find_cheapest(*stack_a, *stack_b, rank);
 		rotation_a(stack_a, count, best_element_a);
-		position_to_insert = find_nearest(stack_b, (*stack_a)->value);
+		position_to_insert = nearest_position(*stack_b, (*stack_a)->value);
 		rotation_b(stack_b, count, position_to_insert);
 		pb(stack_b, stack_a, count);
 	}
@@ -47,7 +47,7 @@ void	go_max(t_list **stack_b, t_count *count)
 	int	size;
 	int	i;
 
-	pos = index_max(*stack_b);
+	pos = max_position(stack_b);
 	size = ft_lstsize(*stack_b);
 	if (pos <= size / 2)
 	{
