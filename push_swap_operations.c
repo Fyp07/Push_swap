@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   push_swap_operations.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:39:50 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/15 11:46:07 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/16 14:05:52 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "./Libft/libft.h"
+#include "push_swap.h"
 
 void	sa(t_list **list_a, t_count *count)
 {
 	t_list	*head;
 	t_list	*node2;
 	t_list	*node3;
-	
+
 	if (!list_a || !(*list_a)->next)
 		return ;
-		
 	head = *list_a;
 	node2 = head->next;
 	node3 = node2->next;
-
 	head->next = node3;
 	head->previous = node2;
-	
 	node2->next = head;
 	node2->previous = NULL;
-
 	node3->previous = head;
-
 	*list_a = node2;
 	count->sa++;
 	write(1, "sa\n", 3);
@@ -44,22 +39,17 @@ void	sb(t_list **list_b, t_count *count)
 	t_list	*head;
 	t_list	*node2;
 	t_list	*node3;
-	
+
 	if (!list_b || !(*list_b)->next)
 		return ;
-		
 	head = *list_b;
 	node2 = head->next;
 	node3 = node2->next;
-
 	head->next = node3;
 	head->previous = node2;
-	
 	node2->next = head;
 	node2->previous = NULL;
-
 	node3->previous = head;
-
 	*list_b = node2;
 	count->sb++;
 	write(1, "sb\n", 3);
@@ -77,24 +67,23 @@ void	ss(t_list **list_a, t_list **list_b, t_count *count)
 
 void	pa(t_list **list_a, t_list **list_b, t_count *count)
 {
-	t_list *temp;
-	t_list *head_a;
-	
+	t_list	*temp;
+	t_list	*head_a;
+
 	if (!list_b || !(*list_b))
 		return ;
-
 	temp = (*list_b)->next;
 	if ((*list_a))
 	{
 		head_a = *list_a;
-		ft_lstadd_front(list_a, (*list_b));
+		lstadd_front(list_a, (*list_b));
 		(*list_b) = temp;
 		head_a->previous = *list_a;
 		(*list_a)->next = head_a;
 	}
 	else
 	{
-		ft_lstadd_front(list_a, (*list_b));
+		lstadd_front(list_a, (*list_b));
 		temp->previous = NULL;
 		(*list_b) = temp;
 	}
@@ -106,24 +95,23 @@ void	pa(t_list **list_a, t_list **list_b, t_count *count)
 
 void	pb(t_list **list_b, t_list **list_a, t_count *count)
 {
-	t_list *temp;
-	t_list *head_b;
-	
+	t_list	*temp;
+	t_list	*head_b;
+
 	if (!list_a || !(*list_a))
 		return ;
-
 	temp = (*list_a)->next;
 	if ((*list_b))
 	{
 		head_b = *list_b;
-		ft_lstadd_front(list_b, (*list_a));
+		lstadd_front(list_b, (*list_a));
 		(*list_a) = temp;
 		head_b->previous = *list_b;
 		(*list_b)->next = head_b;
 	}
 	else
 	{
-		ft_lstadd_front(list_b, (*list_a));
+		lstadd_front(list_b, (*list_a));
 		temp->previous = NULL;
 		(*list_a) = temp;
 	}
@@ -132,5 +120,3 @@ void	pb(t_list **list_b, t_list **list_a, t_count *count)
 	count->size_b++;
 	write(1, "pb\n", 3);
 }
-
-

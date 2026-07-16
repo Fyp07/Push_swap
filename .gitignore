@@ -2,3 +2,5 @@
 *.o
 a.out
 push_swap
+.gitignore
+ft_ps_visu

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 11:24:19 by garodri2          #+#    #+#             */
-/*   Updated: 2026/07/13 17:28:57 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/16 14:03:49 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*set_ranks_radix(t_list **stack, int total_size)
 	int		rank_index;
 
 	head = *stack;
-	total_size = ft_lstsize(head);
+	total_size = lstsize(head);
 	current = head;
 	while (current)
 	{

@@ -6,7 +6,7 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:49:16 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/13 15:38:44 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/16 13:38:41 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_errors(char **numbers)
 {
 	int	i;
-	
+
 	i = 0;
 	while (numbers[i])
 	{
@@ -98,7 +98,7 @@ long	ft_atol(const char *nptr)
 
 int	in_range(char *numbers)
 {
-	long value;
+	long	value;
 
 	value = ft_atol(numbers);
 	if (value > INT_MAX || value < INT_MIN)

@@ -6,13 +6,13 @@
 /*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 12:26:47 by garodri2          #+#    #+#             */
-/*   Updated: 2026/07/08 17:47:58 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/16 14:09:41 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+int	lstsize(t_list *lst)
 {
 	t_list	*current;
 	int		i;
@@ -27,7 +27,7 @@ int	ft_lstsize(t_list *lst)
 	return (i);
 }
 
-int	ft_lstmin(t_list *lst)
+int	lstmin(t_list *lst)
 {
 	int	min;
 
@@ -43,7 +43,7 @@ int	ft_lstmin(t_list *lst)
 	return (min);
 }
 
-int	ft_lstmax(t_list *lst)
+int	lstmax(t_list *lst)
 {
 	int	max;
 

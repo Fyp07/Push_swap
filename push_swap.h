@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:42:28 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/15 11:24:04 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/16 14:18:48 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,22 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-t_list				*ft_lstnew(int content);
-t_list				*ft_lstlast(t_list *lst);
+t_list				*lstnew(int content);
+t_list				*lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
 t_list				*create_stack(char **str, t_input *input, t_count *count);
 t_list				*find_min(t_list **list);
 t_list				*find_max(t_list **list);
 t_list				*set_bucket_ranks(t_list **stack, int total_size);
 
-int					ft_lstsize(t_list *lst);
-void				ft_lstadd_front(t_list **lst, t_list *new);
-void				ft_lstadd_back(t_list **lst, t_list *new);
+int					lstsize(t_list *lst);
+void				lstadd_front(t_list **lst, t_list *new);
+void				lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(int));
 void				ft_lstclear(t_list **lst, void (*del)(int));
 void				ft_lstiter(t_list *lst, void (*f)(int));
-int					ft_lstmin(t_list *lst);
-int					ft_lstmax(t_list *lst);
+int					lstmin(t_list *lst);
+int					lstmax(t_list *lst);
 
 int					nearest_position(t_list *stack_b, int value);
 int					cost_to_insert(t_list *stack_b, int element_stack_a,

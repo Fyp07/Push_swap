@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   position_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 11:25:59 by garodri2          #+#    #+#             */
-/*   Updated: 2026/07/15 11:29:32 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/16 14:05:02 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_list	*find_min(t_list **list)
 	}
 	return (min);
 }
+
 t_list	*find_max(t_list **list)
 {
 	t_list	*max;
@@ -42,11 +43,12 @@ t_list	*find_max(t_list **list)
 	}
 	return (max);
 }
+
 int	max_position(t_list **list)
 {
 	t_list	*max;
 	t_list	*walk;
-	int	pos;
+	int		pos;
 
 	max = find_max(list);
 	walk = *list;
@@ -54,17 +56,18 @@ int	max_position(t_list **list)
 	while (walk)
 	{
 		if (walk->value == max->value)
-			return(pos);
+			return (pos);
 		pos++;
 		walk = walk->next;
 	}
 	return (0);
 }
+
 int	min_position(t_list **list)
 {
 	t_list	*min;
 	t_list	*walk;
-	int	pos;
+	int		pos;
 
 	min = find_min(list);
 	walk = *list;
@@ -72,20 +75,21 @@ int	min_position(t_list **list)
 	while (walk)
 	{
 		if (walk->value == min->value)
-			return(pos);
+			return (pos);
 		pos++;
 		walk = walk->next;
 	}
 	return (0);
 }
+
 int	nearest_position(t_list *stack_b, int value)
 {
 	int	min;
 	int	max;
 	int	pos;
 
-	min = ft_lstmin(stack_b);
-	max = ft_lstmax(stack_b);
+	min = lstmin(stack_b);
+	max = lstmax(stack_b);
 	pos = 0;
 	if (!stack_b)
 		return (0);

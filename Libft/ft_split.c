@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 18:15:11 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/06/18 14:51:26 by fbarrada         ###   ########.fr       */
+/*   Updated: 2026/07/16 13:46:59 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	count_words(const char *str, char sep)
 
 static char	**freeall(char **box, int words)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < words)

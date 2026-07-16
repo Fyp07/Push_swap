@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+         #
+#    By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:35:13 by fbarrada          #+#    #+#              #
-#    Updated: 2026/07/15 12:07:31 by garodri2         ###   ########.fr        #
+#    Updated: 2026/07/16 14:13:13 by fbarrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS = ft_stack.c \
 	   position_utils.c \
 	   algorithms_utils.c \
 	   disorder.c \
+	   rrr_operations.c \
 	   $(LISTAS_SRCS)
 
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))

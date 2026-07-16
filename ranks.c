@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ranks.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/16 13:55:36 by fbarrada          #+#    #+#             */
+/*   Updated: 2026/07/16 14:03:49 by fbarrada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -10,7 +21,7 @@ t_list	*set_bucket_ranks(t_list **stack, int total_size)
 	int		rank_index;
 
 	head = *stack;
-	total_size = ft_lstsize(head);
+	total_size = lstsize(head);
 	buckets = ft_sqrt(total_size);
 	current = head;
 	while (current)
@@ -62,7 +73,7 @@ int	find_rank_pos(t_list *list, int rank)
 	while (list)
 	{
 		if (list->rank == rank)
-		   return (pos);
+			return (pos);
 		list = list->next;
 		pos++;
 	}

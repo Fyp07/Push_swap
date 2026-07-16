@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/16 13:49:56 by fbarrada          #+#    #+#             */
+/*   Updated: 2026/07/16 13:49:58 by fbarrada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -36,8 +47,8 @@ void	ft_print_double(double n)
 
 void	ft_printf(char *str, ...)
 {
-	va_list args;
-	int	i;
+	va_list	args;
+	int		i;
 
 	va_start(args, str);
 	i = 0;

@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/14 15:43:17 by garodri2          #+#    #+#             */
-/*   Updated: 2026/07/14 15:43:18 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/16 13:38:22 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-float compute_disorder(t_list **stack_a)
+float	compute_disorder(t_list **stack_a)
 {
 	float	mistakes;
 	float	total_pairs;
@@ -22,7 +21,6 @@ float compute_disorder(t_list **stack_a)
 
 	mistakes = 0;
 	total_pairs = 0;
-
 	walk = *stack_a;
 	while (walk)
 	{
@@ -30,7 +28,6 @@ float compute_disorder(t_list **stack_a)
 		while (next)
 		{
 			total_pairs++;
-
 			if (walk->value > next->value)
 				mistakes++;
 			next = next->next;

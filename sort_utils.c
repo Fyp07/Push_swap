@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: garodri2 <garodri2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:19:31 by fbarrada          #+#    #+#             */
-/*   Updated: 2026/07/15 11:29:09 by garodri2         ###   ########.fr       */
+/*   Updated: 2026/07/16 14:09:00 by fbarrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	sort_two(t_list **list, t_count *count)
 	write(1, "sa\n", 3);
 	count->sa++;
 }
+
 void	sort_three(t_list **a, t_count *count)
 {
 	t_list	*position;
@@ -46,15 +47,16 @@ void	sort_three(t_list **a, t_count *count)
 	else if (position != find_min(a) && position->next == find_max(a))
 		rra(a, count);
 }
+
 void	sort_five(t_list **a, t_list **b, t_count *count)
 {
 	int	min_pos;
 	int	i;
-	
+
 	if (count->size_a == 1)
 		return ;
 	else if (count->size_a == 2)
-		return(sort_two(a, count));
+		return (sort_two(a, count));
 	while (count->size_a > 3)
 	{
 		min_pos = min_position(a);
@@ -73,6 +75,7 @@ void	sort_five(t_list **a, t_list **b, t_count *count)
 	while ((*b))
 		pa(a, b, count);
 }
+
 int	is_sorted(t_list **list)
 {
 	t_list	*position;
@@ -88,4 +91,3 @@ int	is_sorted(t_list **list)
 	}
 	return (1);
 }
-

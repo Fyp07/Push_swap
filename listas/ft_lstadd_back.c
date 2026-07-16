@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbarrada <fbarrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*current;
 
@@ -22,7 +22,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 	else
 	{
-		current = ft_lstlast(*lst);
+		current = lstlast(*lst);
 		current->next = new;
 		new->previous = current;
 	}

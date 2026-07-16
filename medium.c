@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   medium.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbarrada <fbarrada@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/16 13:50:35 by fbarrada          #+#    #+#             */
+/*   Updated: 2026/07/16 14:08:15 by fbarrada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -15,10 +26,15 @@ int	medium_find_cheapest(t_list *stack_a, t_list *stack_b, int rank)
 	pos = 0;
 	while (node)
 	{
-		if (node->rank == rank
-			&& (cost = cost_to_insert(stack_b, node->value,
-					pos, ft_lstsize(stack_a))) < min_cost)
-			min_cost = cost, best_pos = pos;
+		if (node->rank == rank)
+		{
+			cost = cost_to_insert(stack_b, node->value, pos, lstsize(stack_a));
+			if (cost < min_cost)
+			{
+				min_cost = cost;
+				best_pos = pos;
+			}
+		}
 		node = node->next;
 		pos++;
 	}
@@ -48,7 +64,7 @@ void	go_max(t_list **stack_b, t_count *count)
 	int	i;
 
 	pos = max_position(stack_b);
-	size = ft_lstsize(*stack_b);
+	size = lstsize(*stack_b);
 	if (pos <= size / 2)
 	{
 		while (pos-- > 0)
